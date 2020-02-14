@@ -1,6 +1,7 @@
 #pragma once
 class SceneSelect : public IGameObject
 {
+public:
 	SceneSelect();
 	~SceneSelect();
 

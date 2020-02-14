@@ -1,13 +1,12 @@
 #include "stdafx.h"
 #include "SceneSelect.h"
-
 #include "Game1.h"
 #include "Game2.h"
 
 SceneSelect::SceneSelect()
 {
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	m_spriteRender->Init(L"../Assets/sprite/title.dds", 1280.0f, 720.0f);
+	m_spriteRender->Init(L"../Assets/sprite/SceneSelect.dds", 1280.0f, 720.0f);
 }
 
 

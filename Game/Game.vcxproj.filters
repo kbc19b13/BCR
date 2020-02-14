@@ -22,6 +22,7 @@
     <ClCompile Include="Game1.cpp" />
     <ClCompile Include="Game2.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
+    <ClCompile Include="awa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -32,6 +33,7 @@
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
     <ClInclude Include="SceneSelect.h" />
+    <ClInclude Include="awa.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -42,15 +44,19 @@
     <MeshContentTask Include="Assets\modelData\unityChan.fbx">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\awa.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\sprite\title.png">
+    <ImageContentTask Include="Assets\sprite\title.png">
       <Filter>Assets\sprite</Filter>
-    </Image>
+    </ImageContentTask>
+    <ImageContentTask Include="Assets\sprite\SceneSelect.png">
+      <Filter>Assets\sprite</Filter>
+    </ImageContentTask>
   </ItemGroup>
 </Project>

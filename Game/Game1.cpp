@@ -2,6 +2,7 @@
 #include "Game1.h"
 #include "tkEngine/light/tkDirectionLight.h"
 #include "Title.h"
+#include "SceneSelect.h"
 
 Game1::Game1()
 {
@@ -26,6 +27,10 @@ Game1::~Game1()
 
 void Game1::Update()
 {
+	if (Pad(0).IsPress(enButtonSelect)) {
+		NewGO<SceneSelect>(0);
+		DeleteGO(this);
+	}
 	if (Pad(0).IsPress(enButtonStart)) {
 		NewGO<Title>(0);
 		DeleteGO(this);

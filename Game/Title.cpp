@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Title.h"
-#include "Game1.h"
-#include "Game2.h"
+#include "SceneSelect.h"
 
 Title::Title()
 {
@@ -17,12 +16,8 @@ Title::~Title()
 
 void Title::Update()
 {
-	if (Pad(0).IsPress(enButtonA)) {
-		NewGO<Game1>(0, "Game1");
-		DeleteGO(this);
-	}
-	if (Pad(0).IsPress(enButtonB)) {
-		NewGO<Game2>(0, "Game2");
+	if (Pad(0).IsPress(enButtonX)) {
+		NewGO<SceneSelect>(0);
 		DeleteGO(this);
 	}
 }
