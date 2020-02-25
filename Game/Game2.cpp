@@ -15,6 +15,7 @@ Game2::Game2()
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/kawa.cmo");
+	m_player = NewGO<Player>(0, "doll");
 
 }
 
@@ -22,6 +23,7 @@ Game2::Game2()
 Game2::~Game2()
 {
 	DeleteGO(m_skinModelRender);
+	DeleteGO(m_player);
 }
 
 
