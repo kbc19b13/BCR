@@ -1767,6 +1767,7 @@
     <ClCompile Include="Game2.cpp" />
     <ClCompile Include="isi.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -1795,6 +1796,7 @@
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
     <ClInclude Include="isi.h" />
+    <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="SceneSelect.h" />
     <ClInclude Include="stdafx.h" />
@@ -1803,7 +1805,6 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
-    <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>

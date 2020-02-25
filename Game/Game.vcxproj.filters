@@ -24,6 +24,7 @@
     <ClCompile Include="SceneSelect.cpp" />
     <ClCompile Include="awa.cpp" />
     <ClCompile Include="isi.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -35,7 +36,6 @@
     <ClInclude Include="Game2.h" />
     <ClInclude Include="SceneSelect.h" />
     <ClInclude Include="awa.h" />
-    <ClInclude Include="isi.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -50,9 +50,6 @@
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
     <MeshContentTask Include="Assets\modelData\kawa.FBX">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\isi.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
   </ItemGroup>
