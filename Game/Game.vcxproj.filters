@@ -25,6 +25,7 @@
     <ClCompile Include="awa.cpp" />
     <ClCompile Include="isi.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Camera.cpp" />
   </ItemGroup>
   <ItemGroup>
     <CLInclude Include="resource.h">
@@ -36,6 +37,9 @@
     <ClInclude Include="Game2.h" />
     <ClInclude Include="SceneSelect.h" />
     <ClInclude Include="awa.h" />
+    <ClInclude Include="isi.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Camera.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">

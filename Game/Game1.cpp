@@ -13,6 +13,7 @@ Game1::Game1()
 	MainCamera().SetPosition({ 0.0f, 70.0f, 200.0f });
 	MainCamera().Update();
 
+
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/kawa.cmo");
 	m_player = NewGO<Player>(0, "doll");
