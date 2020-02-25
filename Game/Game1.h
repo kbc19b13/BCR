@@ -3,6 +3,7 @@
 #include "tkEngine/character/tkCharacterController.h"
 #include "Player.h"
 #include "isi.h"
+#include "Camera.h"
 
 class Game1 : public IGameObject
 {
@@ -24,5 +25,7 @@ public:
 
 
 	Player* m_player = nullptr;
+	Camera* m_camera = nullptr;
+
 	isi* m_isi = nullptr;
 };

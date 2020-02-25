@@ -1763,6 +1763,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="awa.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game1.cpp" />
     <ClCompile Include="Game2.cpp" />
     <ClCompile Include="isi.cpp" />
@@ -1793,6 +1794,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="awa.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
     <ClInclude Include="isi.h" />

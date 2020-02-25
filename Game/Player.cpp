@@ -10,7 +10,7 @@ Player::Player()
 
 	m_skinModelRender->Init(L"modelData/doll.cmo");
 
-	m_charaCon.Init(30, 100, m_position);
+	m_charaCon.Init(10,50, m_position);
 }
 
 Player::~Player()
@@ -21,7 +21,7 @@ Player::~Player()
 void Player::Update()
 {
 	m_moveSpeed.x = Pad(0).GetLStickXF() * 250.0f;
-	//m_moveSpeed.z = Pad(0).GetLStickYF() * 250.0f;
+	m_moveSpeed.z = Pad(0).GetLStickYF() * 250.0f;
 
 	//m_moveSpeed.y -= 20.0f;
 
@@ -40,7 +40,7 @@ void Player::Update()
 	m_moveSpeed.x = 0.0f;
 	m_moveSpeed.z = 0.0f;
 	//m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
-	// += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
+	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
 
 	//AnimationControl();
