@@ -14,6 +14,9 @@
     <Filter Include="Assets\sprite">
       <UniqueIdentifier>{a6ce300a-b532-440d-b914-b4661d3015ad}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Assets\level">
+      <UniqueIdentifier>{a1d3124c-dc76-40e1-9dec-3f24038927a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -36,6 +39,8 @@
     <ClInclude Include="Game2.h" />
     <ClInclude Include="SceneSelect.h" />
     <ClInclude Include="awa.h" />
+    <ClInclude Include="isi.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc">
@@ -52,6 +57,9 @@
     <MeshContentTask Include="Assets\modelData\kawa.FBX">
       <Filter>Assets\modelData</Filter>
     </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\doll.FBX">
+      <Filter>Assets\modelData</Filter>
+    </MeshContentTask>
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\dummy.png">
@@ -63,5 +71,10 @@
     <ImageContentTask Include="Assets\sprite\SceneSelect.png">
       <Filter>Assets\sprite</Filter>
     </ImageContentTask>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\level\kawa_le.tkl">
+      <Filter>Assets\level</Filter>
+    </None>
   </ItemGroup>
 </Project>

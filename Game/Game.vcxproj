@@ -1805,6 +1805,7 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
+    <MeshContentTask Include="Assets\modelData\doll.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
@@ -1816,6 +1817,9 @@
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\SceneSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\level\kawa_le.tkl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

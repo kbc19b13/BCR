@@ -3,6 +3,7 @@
 #include "tkEngine/light/tkDirectionLight.h"
 #include "Title.h"
 #include "SceneSelect.h"
+#include "isi.h"
 
 Game1::Game1()
 {
@@ -16,7 +17,7 @@ Game1::Game1()
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/kawa.cmo");
 	m_player = NewGO<Player>(0, "doll");
-
+	
 }
 
 
@@ -26,9 +27,34 @@ Game1::~Game1()
 	DeleteGO(m_player);
 }
 
+bool Game1::Start()
+{
+	//ƒŒƒxƒ‹‚ð\’z‚·‚éB
+	m_level.Init(L"level/kawa_le.tkl", [&](LevelObjectData& objData) {
+
+		for (int i = 0; i > 7; i++)
+		{
+			if (objData.EqualObjectName(L"isi[i]") == true) {
+
+				m_isi = NewGO<isi>(0, "isi[i]");
+				m_isi->lep_isi = objData.position;
+				return true;
+			}
+
+		}
+
+		return false;
+		});
+
+
+
+	return true;
+}
 
 void Game1::Update()
 {
+	
+
 	if (Pad(0).IsPress(enButtonSelect)) {
 		NewGO<SceneSelect>(0);
 		DeleteGO(this);
