@@ -1765,6 +1765,7 @@
     <ClCompile Include="awa.cpp" />
     <ClCompile Include="Game1.cpp" />
     <ClCompile Include="Game2.cpp" />
+    <ClCompile Include="isi.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -1793,6 +1794,7 @@
     <ClInclude Include="awa.h" />
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
+    <ClInclude Include="isi.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="SceneSelect.h" />
     <ClInclude Include="stdafx.h" />
@@ -1801,6 +1803,7 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
+    <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>

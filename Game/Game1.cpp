@@ -14,7 +14,7 @@ Game1::Game1()
 	MainCamera().Update();
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-	m_skinModelRender->Init(L"modelData/kawa.cmo");
+	m_skinModelRender->Init(L"modelData/isi.cmo");
 
 }
 
