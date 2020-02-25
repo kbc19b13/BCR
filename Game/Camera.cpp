@@ -24,3 +24,19 @@ bool Camera::Start()
 
 	return true;
 }
+
+void Camera::Update()
+{
+	//注視点を計算。
+	CVector3 target = m_player->m_position;
+	target.y += 100.0f;
+
+	//視点を計算する。
+	CVector3 pos = target + m_toCameraPos;
+	//メインカメラに注視点と視点を設定する。
+	MainCamera().SetTarget(target);
+	MainCamera().SetPosition(pos);
+
+	//カメラの更新。
+	MainCamera().Update();
+}
