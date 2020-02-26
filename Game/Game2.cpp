@@ -15,8 +15,15 @@ Game2::Game2()
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 	m_skinModelRender->Init(L"modelData/kawa.cmo");
+
+	//Šm”F‚Ìawa
+	m_skin = NewGO<prefab::CSkinModelRender>(0);
+	m_skin->Init(L"modelData/awa.cmo");
+	m_skin->SetPosition(pos);
+
 	m_player = NewGO<Player>(0, "doll");
 	m_camera = NewGO<Camera>(0);
+
 
 }
 

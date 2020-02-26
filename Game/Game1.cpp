@@ -14,11 +14,14 @@ Game1::Game1()
 	MainCamera().SetPosition({ 0.0f, 70.0f, 200.0f });
 	MainCamera().Update();
 
+	//確認のawa
+	m_skin = NewGO<prefab::CSkinModelRender>(0);
+	m_skin->Init(L"modelData/awa.cmo");
+	m_skin->SetPosition(pos);
 
-	//m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-	//m_skinModelRender->Init(L"modelData/kawa.cmo");
+	m_isi = NewGO<isi>(0);
 	m_player = NewGO<Player>(0, "doll");
-	m_camera = NewGO<Camera>(0);
+	m_camera = NewGO<Camera>(0); 
 
 }
 
@@ -34,18 +37,30 @@ bool Game1::Start()
 {
 	//レベルを構築する。
 	m_level.Init(L"level/kawa_le.tkl", [&](LevelObjectData& objData) {
+		
+		
+			if (objData.EqualObjectName(L"isi") == true) {
 
-		if (objData.EqualObjectName(L"isi") == true) {
-
-			m_isi = NewGO<isi>(0, "isi");
-			m_isi->lep_isi = objData.position;
-			return true;
-		}
-
+				m_isi = NewGO<isi>(0, "isi[i]");
+				m_isi->lep_isi = objData.position;
+				
+				return true;
+			}
+			
 		return false;
 		});
 
+	
+	//		
+	//	}
 
+	//	if (p_i_leng.Length())//Lengthでベクトルの長さを取得
+	//	{
+	//		
+	//		return false;
+	//	}
+	//	return	true;
+	//	});
 
 	return true;
 }
