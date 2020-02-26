@@ -23,8 +23,11 @@ public:
 	prefab::CSkinModelRender* m_skin = nullptr;
 	CVector3 pos = CVector3::Zero;
 	
+
+	prefab::CSpriteRender* m_spriteRender;
+	CVector3	m_position = { -460,320,0 };		//ç¿ïWÅB
 	
-	
+
 
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
