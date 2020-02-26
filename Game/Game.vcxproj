@@ -1833,6 +1833,10 @@
   <ItemGroup>
     <None Include="Assets\level\kawa_le.tkl" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\hp.png" />
+    <ImageContentTask Include="Assets\sprite\hp_bar.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

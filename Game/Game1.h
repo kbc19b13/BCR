@@ -20,7 +20,8 @@ public:
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
 	CLevel m_level;							//レベル。
 
-	
+	prefab::CSpriteRender* m_spriteRender;
+	CVector3	m_position = { -460,320,0 };		//座標。
 	
 
 

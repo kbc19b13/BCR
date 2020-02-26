@@ -28,6 +28,7 @@ Game1::~Game1()
 	DeleteGO(m_skinModelRender);
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
+	DeleteGO(m_spriteRender);
 }
 
 bool Game1::Start()
@@ -46,6 +47,10 @@ bool Game1::Start()
 		});
 
 
+	//スプライトを初期化。
+	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
+	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
+
 
 	return true;
 }
@@ -62,4 +67,7 @@ void Game1::Update()
 		NewGO<Title>(0);
 		DeleteGO(this);
 	}
+
+	m_spriteRender->SetPosition(m_position);
+
 }
