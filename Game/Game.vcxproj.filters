@@ -1,82 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns:atg="http://atg.xbox.com" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Assets">
-      <UniqueIdentifier>{ed0b04a6-fecd-4a2c-a462-59a8f4639f36}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{8e114980-c1a3-4ada-ad7c-83caadf5daeb}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
-    </Filter>
-    <Filter Include="Assets\modelData">
-      <UniqueIdentifier>{06086914-6aa4-4cad-9b07-6f9d357f04df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\sprite">
-      <UniqueIdentifier>{a6ce300a-b532-440d-b914-b4661d3015ad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Assets\level">
-      <UniqueIdentifier>{a1d3124c-dc76-40e1-9dec-3f24038927a3}</UniqueIdentifier>
-    </Filter>
+    <ImageContentTask Include="Assets\sprite\dummy.png" />
+    <ImageContentTask Include="Assets\sprite\title.png" />
+    <ImageContentTask Include="Assets\sprite\SceneSelect.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="Title.cpp" />
+    <ClCompile Include="awa.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game1.cpp" />
     <ClCompile Include="Game2.cpp" />
-    <ClCompile Include="SceneSelect.cpp" />
-    <ClCompile Include="awa.cpp" />
     <ClCompile Include="isi.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="SceneSelect.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <CLInclude Include="resource.h">
-      <Filter>Resource Files</Filter>
-    </CLInclude>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Title.h" />
+    <MeshContentTask Include="Assets\modelData\awa.FBX" />
+    <MeshContentTask Include="Assets\modelData\doll.FBX" />
+    <MeshContentTask Include="Assets\modelData\kawa.FBX" />
+    <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
+    <MeshContentTask Include="Assets\modelData\isi.FBX" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="awa.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
-    <ClInclude Include="SceneSelect.h" />
-    <ClInclude Include="awa.h" />
     <ClInclude Include="isi.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Camera.h" />
+    <CLInclude Include="resource.h" />
+    <ClInclude Include="SceneSelect.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Title.h" />
+    <ClInclude Include="Assets\shader\common.h" />
+    <ClInclude Include="Assets\shader\CommonFunc.h" />
+    <ClInclude Include="Assets\shader\LightingFunction.h" />
+    <ClInclude Include="Assets\shader\modelCB.h" />
+    <ClInclude Include="Assets\shader\modelPSFunction.h" />
+    <ClInclude Include="Assets\shader\modelSRV.h" />
+    <ClInclude Include="Assets\shader\modelStruct.h" />
+    <ClInclude Include="Assets\shader\sampleBRDF.h" />
+    <ClInclude Include="Assets\shader\skyPS.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Game.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <MeshContentTask Include="Assets\modelData\unityChan.fbx">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\awa.FBX">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\kawa.FBX">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-    <MeshContentTask Include="Assets\modelData\doll.FBX">
-      <Filter>Assets\modelData</Filter>
-    </MeshContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <ImageContentTask Include="Assets\sprite\dummy.png">
-      <Filter>Assets\sprite</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\sprite\title.png">
-      <Filter>Assets\sprite</Filter>
-    </ImageContentTask>
-    <ImageContentTask Include="Assets\sprite\SceneSelect.png">
-      <Filter>Assets\sprite</Filter>
-    </ImageContentTask>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\level\kawa_le.tkl">
-      <Filter>Assets\level</Filter>
-    </None>
+    <None Include="Assets\level\kawa_le.tkl" />
   </ItemGroup>
 </Project>

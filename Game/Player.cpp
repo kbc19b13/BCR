@@ -20,8 +20,12 @@ Player::~Player()
 
 void Player::Update()
 {
-	m_moveSpeed.x = Pad(0).GetLStickXF() * 250.0f;
-	m_moveSpeed.z = Pad(0).GetLStickYF() * 250.0f;
+	//XZ成分の移動速度をクリア。
+	m_moveSpeed.x = 0.0f;
+	m_moveSpeed.z = 0.0f;
+
+	//m_moveSpeed.x = Pad(0).GetLStickXF() * 250.0f;
+	//m_moveSpeed.z = Pad(0).GetLStickYF() * 250.0f;
 
 	//m_moveSpeed.y -= 20.0f;
 
@@ -36,9 +40,7 @@ void Player::Update()
 	cameraForward.Normalize();
 	cameraRight.y = 0.0f;
 	cameraRight.Normalize();
-	//XZ成分の移動速度をクリア。
-	m_moveSpeed.x = 0.0f;
-	m_moveSpeed.z = 0.0f;
+
 	//m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
 	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
@@ -49,4 +51,4 @@ void Player::Update()
 
 	m_skinModelRender->SetPosition(m_position);
 
-}
+}//}Playerのモデルの位置を原点にするとラグが治るかも？

@@ -1793,6 +1793,15 @@
     <ClCompile Include="Title.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Assets\shader\common.h" />
+    <ClInclude Include="Assets\shader\CommonFunc.h" />
+    <ClInclude Include="Assets\shader\LightingFunction.h" />
+    <ClInclude Include="Assets\shader\modelCB.h" />
+    <ClInclude Include="Assets\shader\modelPSFunction.h" />
+    <ClInclude Include="Assets\shader\modelSRV.h" />
+    <ClInclude Include="Assets\shader\modelStruct.h" />
+    <ClInclude Include="Assets\shader\sampleBRDF.h" />
+    <ClInclude Include="Assets\shader\skyPS.h" />
     <ClInclude Include="awa.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game1.h" />
@@ -1808,6 +1817,7 @@
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
     <MeshContentTask Include="Assets\modelData\doll.FBX" />
+    <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>

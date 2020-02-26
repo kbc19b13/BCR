@@ -2,10 +2,25 @@
 #include "isi.h"
 
 isi::isi()
-{}
+{
+
+	
+
+}
 
 isi::~isi()
 {}
+
+bool isi::Start()
+{
+	skin_isi = NewGO<prefab::CSkinModelRender>(0);
+
+	skin_isi->Init(L"modelData/isi.cmo");
+
+	skin_isi->SetPosition(lep_isi);
+	
+	return true;
+}
 
 void isi::Update()
 {

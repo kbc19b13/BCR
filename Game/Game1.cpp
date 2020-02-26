@@ -15,8 +15,8 @@ Game1::Game1()
 	MainCamera().Update();
 
 
-	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-	m_skinModelRender->Init(L"modelData/kawa.cmo");
+	//m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
+	//m_skinModelRender->Init(L"modelData/kawa.cmo");
 	m_player = NewGO<Player>(0, "doll");
 	m_camera = NewGO<Camera>(0);
 
@@ -35,15 +35,11 @@ bool Game1::Start()
 	//ƒŒƒxƒ‹‚ð\’z‚·‚éB
 	m_level.Init(L"level/kawa_le.tkl", [&](LevelObjectData& objData) {
 
-		for (int i = 0; i > 7; i++)
-		{
-			if (objData.EqualObjectName(L"isi[i]") == true) {
+		if (objData.EqualObjectName(L"isi") == true) {
 
-				m_isi = NewGO<isi>(0, "isi[i]");
-				m_isi->lep_isi = objData.position;
-				return true;
-			}
-
+			m_isi = NewGO<isi>(0, "isi");
+			m_isi->lep_isi = objData.position;
+			return true;
 		}
 
 		return false;
