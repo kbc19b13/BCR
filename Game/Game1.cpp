@@ -7,21 +7,6 @@
 
 Game1::Game1()
 {
-	//カメラを設定。
-	MainCamera().SetTarget({ 0.0f, 70.0f, 0.0f });
-	MainCamera().SetNear(10.0f);
-	MainCamera().SetFar(10000.0f);
-	MainCamera().SetPosition({ 0.0f, 70.0f, 200.0f });
-	MainCamera().Update();
-
-	//確認のawa
-	m_skin = NewGO<prefab::CSkinModelRender>(0);
-	m_skin->Init(L"modelData/awa.cmo");
-	m_skin->SetPosition(pos);
-
-	m_isi = NewGO<isi>(0);
-	m_player = NewGO<Player>(0, "doll");
-	m_camera = NewGO<Camera>(0); 
 
 }
 
@@ -36,6 +21,24 @@ Game1::~Game1()
 
 bool Game1::Start()
 {
+	/////////////////////////////////////////////////////////
+
+	//確認のawa
+	m_skin = NewGO<prefab::CSkinModelRender>(0);
+	m_skin->Init(L"modelData/awa.cmo");
+	m_skin->SetPosition(pos);
+
+	//スプライトを初期化。
+	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
+	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
+
+	//クラスの作成
+	m_isi = NewGO<isi>(0);
+	m_player = NewGO<Player>(0, "doll");
+	m_camera = NewGO<Camera>(0);
+
+	////////////////////////////////////////////////////////
+
 	//レベルを構築する。
 	m_level.Init(L"level/kawa_le.tkl", [&](LevelObjectData& objData) {
 		
@@ -43,7 +46,7 @@ bool Game1::Start()
 			if (objData.EqualObjectName(L"isi") == true) {
 
 				m_isi = NewGO<isi>(0, "isi[i]");
-				m_isi->lep_isi = objData.position;
+				m_isi->Setposition(objData.position);
 				
 				return true;
 			}
@@ -62,11 +65,7 @@ bool Game1::Start()
 	//	}
 	//	return	true;
 	//	});
-	//スプライトを初期化。
-	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
-
-
+	
 	return true;
 }
 

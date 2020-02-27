@@ -7,20 +7,31 @@ public:
 	isi();
 	~isi();
 
+	//////////メンバ関数//////////
+
 	void Update();
 	bool Start();
 
-	prefab::CSkinModelRender* skin_isi = nullptr;
-	CVector3 lep_isi = CVector3::Zero;
+	void Setposition(const CVector3& pos) {
+		p_isi = pos;
+	}
 
-	prefab::CSkinModelRender* skin_awa = nullptr;
+	//////////メンバ変数//////////
+private:
+	CVector3 p_isi = CVector3::Zero;
+
 	CVector3 p_i_leng = CVector3::Zero;
+
+	prefab::CSkinModelRender* skin_isi = nullptr;
+	prefab::CSkinModelRender* skin_awa = nullptr;
+	
+
 
 	int seisei = 0;
 	int state = 0;
 	int timer = 0;
 
-private:
+	//クラスのロード
 	Player* m_player;
 	
 };

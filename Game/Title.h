@@ -5,9 +5,11 @@ public:
 	Title();
 	~Title();
 	
+	/////////////メンバ関数///////////////
+
 	void Update();
 
-	/////////////メンバ関数///////////////
+	/////////////メンバ変数///////////////
 
 	//スプライトレンダ－
 	prefab::CSpriteRender* m_spriteRender = nullptr;

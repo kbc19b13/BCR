@@ -19,7 +19,7 @@ bool isi::Start()
 
 	skin_isi->Init(L"modelData/isi.cmo");
 
-	skin_isi->SetPosition(lep_isi);
+	skin_isi->SetPosition(p_isi);
 	
 	return true;
 }
@@ -37,7 +37,7 @@ void isi::Update()
 		{
 			skin_awa = NewGO<prefab::CSkinModelRender>(0);
 			skin_awa->Init(L"modelData/awa.cmo");
-			skin_awa->SetPosition(lep_isi);
+			skin_awa->SetPosition(p_isi);
 
 			//timer = 0;
 		}
@@ -46,7 +46,7 @@ void isi::Update()
 
 			skin_awa = NewGO<prefab::CSkinModelRender>(0);
 			skin_awa->Init(L"modelData/awa.cmo");
-			skin_awa->SetPosition(lep_isi);
+			skin_awa->SetPosition(p_isi);
 
 			//timer = 0;
 		}
@@ -54,7 +54,7 @@ void isi::Update()
 		{
 			skin_awa = NewGO<prefab::CSkinModelRender>(0);
 			skin_awa->Init(L"modelData/awa.cmo");
-			skin_awa->SetPosition(lep_isi);
+			skin_awa->SetPosition(p_isi);
 
 			//timer = 0;
 		}

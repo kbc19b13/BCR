@@ -11,26 +11,35 @@ public:
 	Game1();
 	~Game1();
 
+
+	//////////メンバ関数//////////
 	void Update();
 	bool Start();
 
-	//////////メンバ関数//////////
 
-	//スキンモデルレンダー
-	prefab::CSkinModelRender* m_skinModelRender = nullptr;
-	CLevel m_level;							//レベル。
-	
+
+	////////////////////////////////////////////////
+	//awaの確認用変数_後で消去
 	prefab::CSkinModelRender* m_skin = nullptr;
 	CVector3 pos = CVector3::Zero;
-	
+	///////////////////////////////////////////////
 
+
+
+	//////////メンバ変数//////////
+private:
+	//スキンモデルレンダー
+	prefab::CSkinModelRender* m_skinModelRender = nullptr;
+	//レベル
+	CLevel m_level;							
+	//スプライトレンダー
 	prefab::CSpriteRender* m_spriteRender;
-	CVector3	m_position = { -460,320,0 };		//座標。
+	//スプライトレンダーの座標
+	CVector3 m_position = { -460,320,0 };
+
 	
-
-
+	//クラスをロード
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
-
 	isi* m_isi = nullptr;
 };

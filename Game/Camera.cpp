@@ -28,7 +28,7 @@ bool Camera::Start()
 void Camera::Update()
 {
 	//注視点を計算。
-	CVector3 target = m_player->m_position;
+	CVector3 target = m_player->Getposition();
 	target.y += 100.0f;
 
 	//視点を計算する。
