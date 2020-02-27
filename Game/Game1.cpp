@@ -44,9 +44,9 @@ bool Game1::Start()
 	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
 
 	//ƒNƒ‰ƒX‚Ìì¬
-	m_isi = NewGO<isi>(0);
 	m_player = NewGO<Player>(0, "doll");
 	m_camera = NewGO<Camera>(0);
+	m_isi = NewGO<isi>(0);
 
 	////////////////////////////////////////////////////////
 
