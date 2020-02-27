@@ -26,8 +26,18 @@ public:
 
 
 
-	//////////メンバ変数//////////
+	
+	/////////Singletonパターン///////////////
+		//Game1を一体に限定
+	static Game1* P_GetInstance()
+	{
+		return m_instance;
+	}
 private:
+	static Game1* m_instance;
+	/////////////////////////////////////////
+
+	//////////メンバ変数//////////
 	//スキンモデルレンダー
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
 	//レベル

@@ -5,9 +5,18 @@
 #include "SceneSelect.h"
 #include "isi.h"
 
+Game1* Game1::m_instance = nullptr;
+
 Game1::Game1()
 {
 
+	//インスタンスの制限
+	if (m_instance != nullptr)
+	{
+		std::abort();
+	}
+
+	m_instance = this;
 }
 
 
@@ -17,6 +26,8 @@ Game1::~Game1()
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
 	DeleteGO(m_spriteRender);
+
+	m_instance = nullptr;
 }
 
 bool Game1::Start()
@@ -45,7 +56,7 @@ bool Game1::Start()
 		
 			if (objData.EqualObjectName(L"isi") == true) {
 
-				m_isi = NewGO<isi>(0, "isi[i]");
+				m_isi = NewGO<isi>(0, "isi");
 				m_isi->Setposition(objData.position);
 				
 				return true;
@@ -54,18 +65,6 @@ bool Game1::Start()
 		return false;
 		});
 
-	
-	//		
-	//	}
-
-	//	if (p_i_leng.Length())//Lengthでベクトルの長さを取得
-	//	{
-	//		
-	//		return false;
-	//	}
-	//	return	true;
-	//	});
-	
 	return true;
 }
 

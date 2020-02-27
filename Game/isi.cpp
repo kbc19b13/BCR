@@ -6,8 +6,8 @@
 isi::isi()
 {
 
+	m_player = Player::P_GetInstance();
 	
-	//m_player = FindGO<Player>("player");
 }
 
 isi::~isi()
@@ -28,35 +28,38 @@ void isi::Update()
 {
 	timer++;
 
-	//p_i_leng = m_player->m_position - lep_isi;
-
-	if (timer >= 60)
+	p_i_leng = m_player->Getposition() - p_isi;
+	if (p_i_leng.Length() <= 500.0f)//Length‚ÅƒxƒNƒgƒ‹‚Ì’·‚³‚ðŽæ“¾
 	{
-		state = rand() % 3;
-		if(state == 0)
+
+		if (timer >= 60)
 		{
-			skin_awa = NewGO<prefab::CSkinModelRender>(0);
-			skin_awa->Init(L"modelData/awa.cmo");
-			skin_awa->SetPosition(p_isi);
+			state = rand() % 3;
+			if (state == 0)
+			{
+				skin_awa = NewGO<prefab::CSkinModelRender>(0);
+				skin_awa->Init(L"modelData/awa.cmo");
+				skin_awa->SetPosition(p_isi);
 
-			//timer = 0;
-		}
-		if (state == 1)
-		{
+				timer = 0;
+			}
+			if (state == 1)
+			{
 
-			skin_awa = NewGO<prefab::CSkinModelRender>(0);
-			skin_awa->Init(L"modelData/awa.cmo");
-			skin_awa->SetPosition(p_isi);
+				skin_awa = NewGO<prefab::CSkinModelRender>(0);
+				skin_awa->Init(L"modelData/awa.cmo");
+				skin_awa->SetPosition(p_isi);
 
-			//timer = 0;
-		}
-		if (state == 2)
-		{
-			skin_awa = NewGO<prefab::CSkinModelRender>(0);
-			skin_awa->Init(L"modelData/awa.cmo");
-			skin_awa->SetPosition(p_isi);
+				timer = 0;
+			}
+			if (state == 2)
+			{
+				skin_awa = NewGO<prefab::CSkinModelRender>(0);
+				skin_awa->Init(L"modelData/awa.cmo");
+				skin_awa->SetPosition(p_isi);
 
-			//timer = 0;
+				timer = 0;
+			}
 		}
 	}
 }

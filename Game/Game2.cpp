@@ -4,8 +4,16 @@
 #include "Title.h"
 #include "SceneSelect.h"
 
+Game2* Game2::m_instance = nullptr;
+
 Game2::Game2()
 {
+	//インスタンスの制限
+	if (m_instance != nullptr)
+	{
+		std::abort();
+	}
+
 	//確認のawa
 	m_skin = NewGO<prefab::CSkinModelRender>(0);
 	m_skin->Init(L"modelData/awa.cmo");
@@ -19,7 +27,7 @@ Game2::Game2()
 	m_player = NewGO<Player>(0, "doll");
 	m_camera = NewGO<Camera>(0);
 
-
+	m_instance = this;
 }
 
 
@@ -29,6 +37,8 @@ Game2::~Game2()
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
 	DeleteGO(m_spriteRender);
+
+	m_instance = nullptr;
 }
 
 bool Game2::Start()

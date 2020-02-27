@@ -10,10 +10,22 @@ public:
 	Game2();
 	~Game2();
 
+	//////////メンバ関数//////////
+
 	void Update();
 	bool Start();
 
-	//////////メンバ関数//////////
+	/////////Singletonパターン///////////////
+		//Game2を一体に限定
+	static Game2* P_GetInstance()
+	{
+		return m_instance;
+	}
+private:
+	static Game2* m_instance;
+	/////////////////////////////////////////
+
+	//////////メンバ変数//////////
 
 	//スキンモデルレンダー
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;

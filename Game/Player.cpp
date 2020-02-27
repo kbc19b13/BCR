@@ -3,19 +3,29 @@
 #include "Game1.h"
 #include "Game2.h"
 
+Player* Player::m_instance = nullptr;
 
 Player::Player()
 {
+	//インスタンスの制限
+	if (m_instance != nullptr)
+	{
+		std::abort();
+	}
+
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 
 	m_skinModelRender->Init(L"modelData/doll.cmo");
 
 	m_charaCon.Init(10,50, m_position);
+
+	m_instance = this;
 }
 
 Player::~Player()
 {
 	DeleteGO(m_skinModelRender);
+	m_instance = nullptr;
 }
 
 void Player::Update()
