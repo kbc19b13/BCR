@@ -21,10 +21,10 @@ Bubble::~Bubble()
 
 void Bubble::Update()
 {
-	bubble_position.x -= 10.0f;
+	bubble_position.z += 1.0f;
 	p_a_kyori = m_player->Getposition() - bubble_position;
 	p_a_kyori.Length();
-	if (p_a_kyori.Length() <= 100)
+	if (p_a_kyori.Length() <= 10)
 	{
 		DeleteGO(this);
 	}
