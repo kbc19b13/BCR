@@ -2,7 +2,8 @@
 #include "tkEngine/physics/tkPhysicsGhostObject.h"
 #include "tkEngine/character/tkCharacterController.h"
 #include "Player.h"
-#include "Camera.h"
+//‘O•ûéŒ¾
+class Camera;
 
 class Game2 : public IGameObject
 {

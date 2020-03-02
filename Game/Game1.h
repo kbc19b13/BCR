@@ -2,8 +2,9 @@
 #include "tkEngine/physics/tkPhysicsGhostObject.h"
 #include "tkEngine/character/tkCharacterController.h"
 #include "Player.h"
-#include "isi.h"
-#include "Camera.h"
+//前方宣言
+class BubbleCreator;
+class Camera;
 
 class Game1 : public IGameObject
 {
@@ -51,5 +52,5 @@ private:
 	//クラスをロード
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
-	isi* m_isi = nullptr;
+	BubbleCreator* isi = nullptr;
 };

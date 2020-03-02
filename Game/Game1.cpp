@@ -3,7 +3,9 @@
 #include "tkEngine/light/tkDirectionLight.h"
 #include "Title.h"
 #include "SceneSelect.h"
-#include "isi.h"
+#include "BubbleCreator.h"
+#include "Player.h"
+#include "Camera.h"
 
 Game1* Game1::m_instance = nullptr;
 
@@ -46,22 +48,21 @@ bool Game1::Start()
 	//クラスの作成
 	m_player = NewGO<Player>(0, "doll");
 	m_camera = NewGO<Camera>(0);
-	m_isi = NewGO<isi>(0);
+	
 
 	////////////////////////////////////////////////////////
 
 	//レベルを構築する。
 	m_level.Init(L"level/kawa_le.tkl", [&](LevelObjectData& objData) {
-		
-		
-			if (objData.EqualObjectName(L"isi") == true) {
+		if (objData.EqualObjectName(L"isi")) {
 
-				m_isi = NewGO<isi>(0, "isi");
-				m_isi->Setposition(objData.position);
-				
-				return true;
-			}
-			
+			BubbleCreator* isi = NewGO<BubbleCreator>(0, "isi");
+			isi->Setposition(objData.position);
+
+			return true;
+		}
+		//クラスの処理が入らない
+		//レベル配置の通りに座標を配置する
 		return false;
 		});
 

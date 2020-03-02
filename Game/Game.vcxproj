@@ -1762,11 +1762,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="awa.cpp" />
+    <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="BubbleCreator.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game1.cpp" />
     <ClCompile Include="Game2.cpp" />
-    <ClCompile Include="isi.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
@@ -1802,11 +1802,11 @@
     <ClInclude Include="Assets\shader\modelStruct.h" />
     <ClInclude Include="Assets\shader\sampleBRDF.h" />
     <ClInclude Include="Assets\shader\skyPS.h" />
-    <ClInclude Include="awa.h" />
+    <ClInclude Include="Bubble.h" />
+    <ClInclude Include="BubbleCreator.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
-    <ClInclude Include="isi.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="SceneSelect.h" />
@@ -1832,6 +1832,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\level\kawa_le.tkl" />
+    <None Include="Assets\level\level_00.tkl" />
   </ItemGroup>
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\hp.png" />

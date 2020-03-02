@@ -3,6 +3,8 @@
 #include "tkEngine/light/tkDirectionLight.h"
 #include "Title.h"
 #include "SceneSelect.h"
+#include "Player.h"
+#include "Camera.h"
 
 Game2* Game2::m_instance = nullptr;
 
