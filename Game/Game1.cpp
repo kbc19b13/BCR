@@ -28,6 +28,7 @@ Game1::~Game1()
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
 	DeleteGO(m_spriteRender);
+	DeleteGO(h_spriteRender);
 
 	m_instance = nullptr;
 }
@@ -44,6 +45,9 @@ bool Game1::Start()
 	//スプライトを初期化。
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
+
+	h_spriteRender = NewGO<prefab::CSpriteRender>(0);
+	h_spriteRender->Init(L"sprite/hp.dds", 285, 30);
 
 	//クラスの作成
 	m_player = NewGO<Player>(0, "doll");
@@ -83,5 +87,6 @@ void Game1::Update()
 	}
 
 	m_spriteRender->SetPosition(m_position);
+	h_spriteRender->SetPosition(h_position);
 
 }
