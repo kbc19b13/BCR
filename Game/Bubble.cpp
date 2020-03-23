@@ -21,7 +21,8 @@ Bubble::~Bubble()
 
 void Bubble::Update()
 {
-	bubble_position.z += 1.0f;
+	bubble_position = bubble_movespeed;
+	StopPosition(bubble_position, bubble_movespeed);
 	p_a_kyori = m_player->GetPosition() - GetPosition();
 	p_a_kyori.Length();
 	if (p_a_kyori.Length() <= 10)
