@@ -44,9 +44,11 @@ private:
 	//レベル
 	CLevel m_level;							
 	//スプライトレンダー
-	prefab::CSpriteRender* m_spriteRender;
+	prefab::CSpriteRender* m_spriteRender;//hpバー
+	prefab::CSpriteRender* h_spriteRender;//hp
 	//スプライトレンダーの座標
 	CVector3 m_position = { -460,320,0 };
+	CVector3 h_position = { -460,320,0 };
 
 	
 	//クラスをロード
