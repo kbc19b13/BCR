@@ -2,6 +2,7 @@
 #include "BubbleCreator.h"
 #include "Player.h"
 #include "Bubble.h"
+#include "BubbleChange.h"
 
 
 BubbleCreator::BubbleCreator()
@@ -33,18 +34,18 @@ void BubbleCreator::Update()
 {
 
 	//Player‚Æisi‚Æ‚Ì’·‚³‚Åawa‚ð”­¶‚³‚¹‚é
-	p_i_leng = bc_position - m_player->Getposition();
+	p_i_leng = bc_position - m_player->GetPosition();
 	if (p_i_leng.Length() <= 100.0f)//Length‚ÅƒxƒNƒgƒ‹‚Ì’·‚³‚ðŽæ“¾
 	{
 		timer++;
 		if (timer >= 60)
 		{
-			state = rand() % 3;
+			//state = rand() % 3;
 			if (state == 0)
 			{
 
-				Bubble* awa = NewGO<Bubble>(0);
-				awa->SetPosition(bc_position);
+				BubbleChange* awa2 = NewGO<BubbleChange>(0);
+				awa2->SetPosition(bc_position);
 
 				timer = 0;
 			}

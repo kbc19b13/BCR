@@ -7,7 +7,7 @@ public:
 
 	void Update() override;
 
-	const CVector3& Getposition() const {
+	const CVector3& GetPosition() const {
 		return m_position;
 	}
 

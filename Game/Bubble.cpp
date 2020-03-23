@@ -22,7 +22,7 @@ Bubble::~Bubble()
 void Bubble::Update()
 {
 	bubble_position.z += 1.0f;
-	p_a_kyori = m_player->Getposition() - bubble_position;
+	p_a_kyori = m_player->GetPosition() - GetPosition();
 	p_a_kyori.Length();
 	if (p_a_kyori.Length() <= 10)
 	{

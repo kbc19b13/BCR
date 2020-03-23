@@ -14,7 +14,7 @@ public:
 	void Update();
 
 public:
-	const CVector3& Getposition() const {
+	const CVector3& GetPosition() const {
 		return bubble_position;
 	}
 

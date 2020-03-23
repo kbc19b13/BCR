@@ -3,6 +3,7 @@
 //前方宣言
 class Player;
 class Bubble;
+class BubbleChange;
 
 class BubbleCreator : public IGameObject
 {
@@ -43,4 +44,5 @@ private:
 	//クラスのロード
 	Player* m_player = nullptr;
 	Bubble* awa = nullptr;
+	BubbleChange* awa2 = nullptr;
 };

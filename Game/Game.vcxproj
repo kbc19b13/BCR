@@ -1763,6 +1763,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="BubbleChange.cpp" />
     <ClCompile Include="BubbleCreator.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game1.cpp" />
@@ -1803,6 +1804,7 @@
     <ClInclude Include="Assets\shader\sampleBRDF.h" />
     <ClInclude Include="Assets\shader\skyPS.h" />
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="BubbleChange.h" />
     <ClInclude Include="BubbleCreator.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game1.h" />
