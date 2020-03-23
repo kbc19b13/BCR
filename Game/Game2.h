@@ -35,7 +35,10 @@ private:
 	CVector3 pos = CVector3::Zero;
 
 	prefab::CSpriteRender* m_spriteRender;
-	CVector3	m_position = { -460,320,0 };		//座標。
+	prefab::CSpriteRender* h_spriteRender;
+
+	CVector3 m_position = { -460,320,0 };		//座標。
+	CVector3 h_position = { -460,320,0 };
 
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;

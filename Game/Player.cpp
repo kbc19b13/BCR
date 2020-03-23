@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Game1.h"
 #include "Game2.h"
+#include "Bullet.h"
 
 Player* Player::m_instance = nullptr;
 
@@ -60,5 +61,16 @@ void Player::Update()
 	m_position = m_charaCon.Execute(m_moveSpeed);
 
 	m_skinModelRender->SetPosition(m_position);
+
+	if (Pad(0).IsPress(enButtonA)) {
+		Bullet* bullet = NewGO<Bullet>(0);
+		//弾丸の座標にプレイヤーの座標を代入する。
+		bullet->m_position = m_position;
+		//Z軸方向に400の速度を設定する。
+		bullet->m_moveSpeed.z = 400.0f;
+
+	}
+	
+
 
 }//}Playerのモデルの位置を原点にするとラグが治るかも？

@@ -18,6 +18,7 @@
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="BubbleCreator.cpp" />
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
@@ -25,6 +26,7 @@
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
+    <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -46,6 +48,7 @@
     <ClInclude Include="Assets\shader\skyPS.h" />
     <ClInclude Include="BubbleCreator.h" />
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />
