@@ -27,7 +27,8 @@ private:
 	prefab::CSkinModelRender* bubble2_skinmodelrender = nullptr;
 
 	CVector3 bubble2_position = CVector3::Zero;
-	CVector3 bubble2_movespeed = {1.0f, 0.0f, 1.0f};
+	CVector3 bubble2_movespeed = {1.0f, 0.0f, 0.5f};
+	int direction = 0;
 
 	//クラスのロード
 	Player* m_player = nullptr;

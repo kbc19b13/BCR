@@ -35,12 +35,12 @@ void BubbleCreator::Update()
 
 	//Playerとisiとの長さでawaを発生させる
 	p_i_leng = bc_position - m_player->GetPosition();
-	if (p_i_leng.Length() <= 100.0f)//Lengthでベクトルの長さを取得
+	if (p_i_leng.Length() <= 200.0f)//Lengthでベクトルの長さを取得
 	{
 		timer++;
-		if (timer >= 60)
+		if (timer >= 120)
 		{
-			//state = rand() % 3;
+			state = rand() % 2;
 			if (state == 0)
 			{
 
