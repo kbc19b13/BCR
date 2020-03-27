@@ -68,9 +68,7 @@ void Player::Update()
 
 	//AnimationControl();
 
-	m_position = m_charaCon.Execute(m_moveSpeed);
-
-	m_skinModelRender->SetPosition(m_position);
+	
 
 	if (Pad(0).IsPress(enButtonA)) {
 		Bullet* bullet = NewGO<Bullet>(0);
@@ -81,6 +79,7 @@ void Player::Update()
 
 	}
 	
+	/*
 	QueryGOs<Bubble>("awa", [&](Bubble* awa)->bool {
 		//２点間の距離を計算する。
 		CVector3 diff = awa->GetPosition() - m_position;
@@ -89,17 +88,19 @@ void Player::Update()
 			//GameOver2Dを作成する。
 			//NewGO<GameOver2D>(0);
 
-			/*CVector3 a = game1->GetScale();
+			CVector3 a = game1->GetScale();
 			a.x -= 2.0f;
-			game1->SetScale(a);*/
+			game1->SetScale(a);
 
-			game1->s -= 2.0f;
+			//game1->s -= 2.0f;
 
 			//クエリ終了。
 			return false;
 		}
 		return true;
 		});
+		*/
 
-
-}//}Playerのモデルの位置を原点にするとラグが治るかも？
+	m_position = m_charaCon.Execute(m_moveSpeed);
+	m_skinModelRender->SetPosition(m_position);
+}

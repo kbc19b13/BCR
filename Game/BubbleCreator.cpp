@@ -34,7 +34,7 @@ void BubbleCreator::Update()
 {
 
 	//Player‚Æisi‚Æ‚Ì’·‚³‚Åawa‚ð”­¶‚³‚¹‚é
-	p_i_leng = bc_position - m_player->GetPosition();
+	CVector3 p_i_leng = bc_position - m_player->GetPosition();
 	if (p_i_leng.Length() <= 200.0f)//Length‚ÅƒxƒNƒgƒ‹‚Ì’·‚³‚ðŽæ“¾
 	{
 		timer++;

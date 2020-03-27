@@ -32,7 +32,7 @@ private:
 
 	CVector3 bc_position = CVector3::Zero;
 
-	CVector3 p_i_leng = CVector3::Zero;
+	
 
 	prefab::CSkinModelRender* isi_skinmodelrender = nullptr;
 
