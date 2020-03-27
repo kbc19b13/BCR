@@ -28,6 +28,7 @@
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
+    <MeshContentTask Include="Assets\modelData\Player.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -49,6 +50,8 @@
     <ClInclude Include="Assets\shader\skyPS.h" />
     <ClInclude Include="BubbleCreator.h" />
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="BubbleChange.h" />
+    <ClInclude Include="Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

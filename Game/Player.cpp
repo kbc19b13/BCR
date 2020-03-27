@@ -31,9 +31,14 @@ bool Player::Start()
 	//awa = FindGO<Bubble>("awa");
 	//game1 = FindGO<Game1>("game1");
 
+	m_animClips[enAnimationClip_walk].Load(L"animData/Player/Player.tka");
+	m_animClips[enAnimationClip_walk].SetLoopFlag(true);
+
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 
-	m_skinModelRender->Init(L"modelData/doll.cmo");
+	m_skinModelRender->Init(L"modelData/Player.cmo", m_animClips, 1);
+
+	m_skinModelRender->PlayAnimation(enAnimationClip_walk);
 
 	m_charaCon.Init(10, 50, m_position);
 	return true;
@@ -66,7 +71,7 @@ void Player::Update()
 	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
 
-	//AnimationControl();
+	AnimationControl();
 
 	m_position = m_charaCon.Execute(m_moveSpeed);
 
@@ -81,7 +86,7 @@ void Player::Update()
 
 	}
 	
-	QueryGOs<Bubble>("awa", [&](Bubble* awa)->bool {
+	/*QueryGOs<Bubble>("awa", [&](Bubble* awa)->bool {
 		//２点間の距離を計算する。
 		CVector3 diff = awa->GetPosition() - m_position;
 		if (diff.Length() < 50.0f) {	//距離が500以下になったら。
@@ -89,9 +94,9 @@ void Player::Update()
 			//GameOver2Dを作成する。
 			//NewGO<GameOver2D>(0);
 
-			/*CVector3 a = game1->GetScale();
+			CVector3 a = game1->GetScale();
 			a.x -= 2.0f;
-			game1->SetScale(a);*/
+			game1->SetScale(a);
 
 			game1->s -= 2.0f;
 
@@ -100,6 +105,25 @@ void Player::Update()
 		}
 		return true;
 		});
-
+		*/
 
 }//}Playerのモデルの位置を原点にするとラグが治るかも？
+
+
+void Player::AnimationControl()
+{
+	
+	if (Pad(0).GetLStickXF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	else if (Pad(0).GetLStickXF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	else if (Pad(0).GetLStickYF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	else if (Pad(0).GetLStickYF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	
+}

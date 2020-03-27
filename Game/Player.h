@@ -11,6 +11,7 @@ public:
 
 	void Update() override;
 	bool Start();
+	void AnimationControl();
 
 	const CVector3& GetPosition() const {
 		return m_position;
@@ -33,6 +34,12 @@ private:
 	static Player* m_instance;
 	/////////////////////////////////////////
 
+
+	enum EnAnimationClip {
+		enAnimationClip_walk,	//歩きアニメーション。
+		enAnimationClip_num,	//アニメーションクリップの数。
+	};
+
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_moveSpeed = CVector3::Zero;
 	CQuaternion m_rotation = CQuaternion::Identity;
@@ -42,5 +49,6 @@ private:
 
 	Bubble* awa = nullptr;
 	Game1* game1 = nullptr;
+	CAnimationClip m_animClips[enAnimationClip_num];
 };
 

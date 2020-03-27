@@ -1824,6 +1824,7 @@
     <MeshContentTask Include="Assets\modelData\doll.FBX" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
+    <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
   </ItemGroup>
   <ItemGroup>
