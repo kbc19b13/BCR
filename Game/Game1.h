@@ -16,15 +16,21 @@ public:
 	//////////メンバ関数//////////
 	void Update();
 	bool Start();
-
-
+	
+	const CVector3& GetScale() const {
+		
+		return scale;
+	}
+	void SetScale(const CVector3& a_pos) {
+		scale = a_pos;
+	}
 
 	////////////////////////////////////////////////
 	//awaの確認用変数_後で消去
 	prefab::CSkinModelRender* m_skin = nullptr;
 	CVector3 pos = CVector3::Zero;
 	///////////////////////////////////////////////
-
+	float s = 15.0f;
 
 
 	
@@ -50,7 +56,9 @@ private:
 	CVector3 m_position = { -460,320,0 };
 	CVector3 h_position = { -460,320,0 };
 
+	CVector3 scale = {s, 1.0f, 1.0f};
 	
+
 	//クラスをロード
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;

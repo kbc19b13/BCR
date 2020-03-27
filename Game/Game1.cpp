@@ -47,8 +47,8 @@ bool Game1::Start()
 	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
 
 	h_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	h_spriteRender->Init(L"sprite/hp.dds", 285, 30);
-
+	
+	
 	//ƒNƒ‰ƒX‚Ìì¬
 	m_player = NewGO<Player>(0, "doll");
 	m_camera = NewGO<Camera>(0);
@@ -86,7 +86,10 @@ void Game1::Update()
 		DeleteGO(this);
 	}
 
+	h_spriteRender->Init(L"sprite/hp.dds", s, 30);
+
 	m_spriteRender->SetPosition(m_position);
 	h_spriteRender->SetPosition(h_position);
+	h_spriteRender->SetScale(scale);
 
 }

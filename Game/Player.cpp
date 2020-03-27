@@ -3,6 +3,7 @@
 #include "Game1.h"
 #include "Game2.h"
 #include "Bullet.h"
+#include "Bubble.h"
 
 Player* Player::m_instance = nullptr;
 
@@ -14,11 +15,7 @@ Player::Player()
 		std::abort();
 	}
 
-	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
-
-	m_skinModelRender->Init(L"modelData/doll.cmo");
-
-	m_charaCon.Init(10,50, m_position);
+	
 
 	m_instance = this;
 }
@@ -27,6 +24,19 @@ Player::~Player()
 {
 	DeleteGO(m_skinModelRender);
 	m_instance = nullptr;
+}
+
+bool Player::Start() 
+{
+	//awa = FindGO<Bubble>("awa");
+	//game1 = FindGO<Game1>("game1");
+
+	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
+
+	m_skinModelRender->Init(L"modelData/doll.cmo");
+
+	m_charaCon.Init(10, 50, m_position);
+	return true;
 }
 
 void Player::Update()
@@ -71,6 +81,25 @@ void Player::Update()
 
 	}
 	
+	QueryGOs<Bubble>("awa", [&](Bubble* awa)->bool {
+		//２点間の距離を計算する。
+		CVector3 diff = awa->GetPosition() - m_position;
+		if (diff.Length() < 50.0f) {	//距離が500以下になったら。
+
+			//GameOver2Dを作成する。
+			//NewGO<GameOver2D>(0);
+
+			/*CVector3 a = game1->GetScale();
+			a.x -= 2.0f;
+			game1->SetScale(a);*/
+
+			game1->s -= 2.0f;
+
+			//クエリ終了。
+			return false;
+		}
+		return true;
+		});
 
 
 }//}Playerのモデルの位置を原点にするとラグが治るかも？

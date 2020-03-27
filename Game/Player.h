@@ -1,4 +1,8 @@
 #pragma once
+class Bubble;
+class Game1;
+//class Game2;
+
 class Player : public IGameObject
 {
 public:
@@ -6,6 +10,7 @@ public:
 	~Player();
 
 	void Update() override;
+	bool Start();
 
 	const CVector3& GetPosition() const {
 		return m_position;
@@ -34,5 +39,8 @@ private:
 
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
 	CCharacterController m_charaCon;
+
+	Bubble* awa = nullptr;
+	Game1* game1 = nullptr;
 };
 
