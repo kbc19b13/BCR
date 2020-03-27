@@ -31,9 +31,14 @@ bool Player::Start()
 	//awa = FindGO<Bubble>("awa");
 	//game1 = FindGO<Game1>("game1");
 
+	m_animClips[enAnimationClip_walk].Load(L"animData/Player/Player.tka");
+	m_animClips[enAnimationClip_walk].SetLoopFlag(true);
+
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 
-	m_skinModelRender->Init(L"modelData/doll.cmo");
+	m_skinModelRender->Init(L"modelData/Player.cmo", m_animClips, 1);
+
+	m_skinModelRender->PlayAnimation(enAnimationClip_walk);
 
 	m_charaCon.Init(10, 50, m_position);
 	return true;
@@ -66,9 +71,11 @@ void Player::Update()
 	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
 
-	//AnimationControl();
+	AnimationControl();
 
-	
+	m_position = m_charaCon.Execute(m_moveSpeed);
+
+	m_skinModelRender->SetPosition(m_position);
 
 	if (Pad(0).IsPress(enButtonA)) {
 		Bullet* bullet = NewGO<Bullet>(0);
@@ -103,4 +110,21 @@ void Player::Update()
 
 	m_position = m_charaCon.Execute(m_moveSpeed);
 	m_skinModelRender->SetPosition(m_position);
+}
+void Player::AnimationControl()
+{
+	
+	if (Pad(0).GetLStickXF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	else if (Pad(0).GetLStickXF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	else if (Pad(0).GetLStickYF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	else if (Pad(0).GetLStickYF()) {
+		m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	}
+	
 }
