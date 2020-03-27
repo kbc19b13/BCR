@@ -183,7 +183,7 @@ void Bubble::awa_Delete()
 
 				for (int i = 0; i > awa->parent->children.size(); i++)
 				{
-					DeleteGO(children[i]);
+					DeleteGO(awa->parent->children[i]);
 				}
 					
 			}
