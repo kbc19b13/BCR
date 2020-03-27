@@ -37,8 +37,10 @@ public:
 		}
 	}
 
+	void oyako();
+
 	//////////メンバ変数//////////
-private:
+protected:
 	prefab::CSkinModelRender* bubble_skinmodelrender = nullptr;
 
 	CVector3 bubble_position = CVector3::Zero;
@@ -52,4 +54,5 @@ private:
 	BubbleCreator* isi = nullptr;
 
 	Bubble* parent = nullptr;
+	std::vector<Bubble*> children;	//子供のリスト。
 };

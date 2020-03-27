@@ -44,7 +44,7 @@ void BubbleCreator::Update()
 			if (state == 0)
 			{
 
-				BubbleChange* awa2 = NewGO<BubbleChange>(0);
+				BubbleChange* awa2 = NewGO<BubbleChange>(0, "awa");
 				awa2->SetPosition(bc_position);
 
 				timer = 0;
@@ -52,17 +52,17 @@ void BubbleCreator::Update()
 			if (state == 1)
 			{
 
-				Bubble* awa = NewGO<Bubble>(0);
+				Bubble* awa = NewGO<Bubble>(0, "awa");
 				awa->SetPosition(bc_position);
-
+				
 				timer = 0;
 			}
 			if (state == 2)
 			{
 
-				Bubble* awa = NewGO<Bubble>(0);
+				Bubble* awa = NewGO<Bubble>(0, "awa");
 				awa->SetPosition(bc_position);
-
+				
 				timer = 0;
 			}
 		}
