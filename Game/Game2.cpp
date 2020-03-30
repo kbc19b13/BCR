@@ -40,6 +40,7 @@ Game2::~Game2()
 	DeleteGO(m_camera);
 	DeleteGO(m_spriteRender);
 	DeleteGO(h_spriteRender);
+	DeleteGOs("バブルクラスター");
 
 	m_instance = nullptr;
 }

@@ -36,9 +36,12 @@ bool Player::Start()
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 
-	m_skinModelRender->Init(L"modelData/Player.cmo", m_animClips, 1);
-
-	m_skinModelRender->PlayAnimation(enAnimationClip_walk);
+	m_skinModelRender->Init(L"modelData/doll.cmo"/*, m_animClips, 1*/);
+	m_skinModelRender->SetShadowCasterFlag(true);
+	m_skinModelRender->FindMaterial([&](CModelEffect* mat) {
+		mat->SetMaterialID(enMaterialID_Default);
+	});
+	//m_skinModelRender->PlayAnimation(enAnimationClip_walk);
 
 	m_charaCon.Init(10, 50, m_position);
 	return true;
@@ -71,7 +74,7 @@ void Player::Update()
 	m_moveSpeed += cameraForward * lStick_y * 200.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 200.0f;		//右方向への移動速度を加算。
 
-	AnimationControl();
+	//AnimationControl();
 
 	m_position = m_charaCon.Execute(m_moveSpeed);
 

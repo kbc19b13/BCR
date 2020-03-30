@@ -63,4 +63,5 @@ private:
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
 	BubbleCreator* isi = nullptr;
+	prefab::CDirectionLight* m_dirLig = nullptr;
 };

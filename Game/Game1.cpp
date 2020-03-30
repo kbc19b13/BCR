@@ -6,6 +6,7 @@
 #include "BubbleCreator.h"
 #include "Player.h"
 #include "Camera.h"
+#include "BackGround.h"
 
 Game1* Game1::m_instance = nullptr;
 
@@ -29,7 +30,7 @@ Game1::~Game1()
 	DeleteGO(m_camera);
 	DeleteGO(m_spriteRender);
 	DeleteGO(h_spriteRender);
-
+	DeleteGOs("バブルクラスター");
 	m_instance = nullptr;
 }
 
@@ -63,6 +64,14 @@ bool Game1::Start()
 			BubbleCreator* isi = NewGO<BubbleCreator>(0, "isi");
 			isi->Setposition(objData.position);
 
+			
+
+			return true;
+		}
+		if (objData.EqualObjectName(L"kawa")) {
+			BackGround* kawa = NewGO<BackGround>(0, "kawa");
+			kawa->Setposition(objData.position);
+
 			return true;
 		}
 		//クラスの処理が入らない
@@ -70,6 +79,18 @@ bool Game1::Start()
 		return false;
 		});
 
+	//ライトを設置。
+	m_dirLig = NewGO<prefab::CDirectionLight>(0);
+	//ライトの方向を計算。
+	CVector3 dir = { 1, -1, 1 };
+	dir.Normalize(); //方向は大きさ１である必要があるので正規化する。
+	m_dirLig->SetDirection(dir);
+	m_dirLig->SetColor({ 0.6f, 0.6f, 0.6f, 1.0f });	//真っ赤なライト。
+	m_dirLig->SetLightingMaterialIDGroup(1 << enMaterialID_Default);
+	LightManager().SetAmbientLight({ 0.2f, 0.2f, 0.2f });	//環境ライト
+
+	shadow::DirectionShadowMap().SetLightDirection(dir);
+	
 	return true;
 }
 

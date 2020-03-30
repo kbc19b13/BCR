@@ -1762,8 +1762,10 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="Bubble.cpp" />
     <ClCompile Include="BubbleChange.cpp" />
+    <ClCompile Include="BubbleCluster.cpp" />
     <ClCompile Include="BubbleCreator.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -1804,8 +1806,10 @@
     <ClInclude Include="Assets\shader\modelStruct.h" />
     <ClInclude Include="Assets\shader\sampleBRDF.h" />
     <ClInclude Include="Assets\shader\skyPS.h" />
+    <ClInclude Include="BackGround.h" />
     <ClInclude Include="Bubble.h" />
     <ClInclude Include="BubbleChange.h" />
+    <ClInclude Include="BubbleCluster.h" />
     <ClInclude Include="BubbleCreator.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
@@ -1843,6 +1847,12 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\sprite\hp.png" />
     <ImageContentTask Include="Assets\sprite\hp_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\water_spec.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\modelData\awa_spec.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -7,3 +7,7 @@
 
 #include "tkEngine/tkEnginePreCompile.h"
 using namespace tkEngine;
+
+enum MaterialID {
+	enMaterialID_Default = 1,	//デフォルトマテリアル
+};

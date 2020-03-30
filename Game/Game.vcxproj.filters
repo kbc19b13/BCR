@@ -20,6 +20,8 @@
     <ClCompile Include="Bubble.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="BubbleChange.cpp" />
+    <ClCompile Include="BubbleCluster.cpp" />
+    <ClCompile Include="BackGround.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
@@ -52,6 +54,8 @@
     <ClInclude Include="Bubble.h" />
     <ClInclude Include="BubbleChange.h" />
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="BubbleCluster.h" />
+    <ClInclude Include="BackGround.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />
@@ -59,5 +63,9 @@
   <ItemGroup>
     <None Include="Assets\level\kawa_le.tkl" />
     <None Include="Assets\level\level_00.tkl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\modelData\water_spec.png" />
+    <Image Include="Assets\modelData\awa_spec.jpg" />
   </ItemGroup>
 </Project>

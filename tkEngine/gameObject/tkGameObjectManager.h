@@ -135,8 +135,8 @@ namespace tkEngine{
 		T* FindGameObject(const char* objectName, bool enableErrorMessage)
 		{
 			unsigned int nameKey = CUtil::MakeHash(objectName);
-			for (auto goList : m_gameObjectListArray) {
-				for (auto go : goList) {
+			for (auto& goList : m_gameObjectListArray) {
+				for (auto& go : goList) {
 					if (go->m_nameKey == nameKey) {
 						//見つけた。
 						T* p = dynamic_cast<T*>(go);
@@ -165,9 +165,9 @@ namespace tkEngine{
 		void FindGameObjects(const char* objectName, std::function<bool(T* go)> func)
 		{
 			unsigned int nameKey = CUtil::MakeHash(objectName);
-			for (auto goList : m_gameObjectListArray) {
-				for (auto go : goList) {
-					if (go->m_nameKey == nameKey) {
+			for (auto& goList : m_gameObjectListArray) {
+				for (auto& go : goList) {
+					if (go->IsStart() && go->m_nameKey == nameKey && go->IsDead() == false) {
 						//見つけた。
 						T* p = dynamic_cast<T*>(go);
 						if (func(p) == false) {
