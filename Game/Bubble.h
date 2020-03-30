@@ -57,8 +57,10 @@ protected:
 	CVector3 bubble_movespeed = { 0.0f, 0.0f, 0.2f };
 	//方向
 	int direction = 0;
+	//???
+	CVector3 m_moveSpeedAdd = CVector3::Zero;
+
 	CShaderResourceView m_specMap;	//すぺきゅらマップ
-	
 	
 
 	//クラスのロード
@@ -67,6 +69,7 @@ protected:
 
 	//親のポインタを設定
 	BubbleCluster* m_bubbleCluster = nullptr;	//バブルクラスター。
-									//std::vector＝動的配列クラス
-	CVector3 m_moveSpeedAdd = CVector3::Zero;
+												
+												//std::vector＝動的配列クラス
+	
 };

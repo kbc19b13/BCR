@@ -31,6 +31,10 @@ bool Bubble::Start()
 	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
 	m_bubbleCluster->AddBubble(this);
 
+	
+	////////////////////////////////////////////
+	/*少しだけ動きをランダムに
+	　直線的な動きでなく流動的な動きにする*/
 	m_moveSpeedAdd.x = Random().GetRandDouble();
 	if (Random().GetRandInt() % 2 == 0) {
 		m_moveSpeedAdd.x *= -1.0f;
@@ -38,11 +42,14 @@ bool Bubble::Start()
 	m_moveSpeedAdd.z = Random().GetRandDouble();
 
 	m_moveSpeedAdd *= 0.05f;
+	////////////////////////////////////////////
+	
 
+	//泡のサイズをちょっとずつ変える
 	float a = (120 + (rand() % 24 + 1)) / 120.0f ;
-
 	CVector3 scale = { a, a, a };
 	bubble_skinmodelrender->SetScale(scale);
+
 	return true;
 }
 Bubble::~Bubble()
@@ -88,6 +95,7 @@ void Bubble::Update()
 //awaの親子関係
 void Bubble::oyako()
 {
+	//泡をクラスターの移動速度で動かす（泡は動かない）
 	bubble_position += m_bubbleCluster->GetMoveSpeed() + m_moveSpeedAdd;
 	
 	QueryGOs<Bubble>("awa", [&](Bubble* awa) {
@@ -98,9 +106,9 @@ void Bubble::oyako()
 			//同じクラスター
 			return true;
 		}
-		/*泡が自分じゃなく、親がいないとき。*/
+		//距離で消す
 		CVector3 a_a_kyori = bubble_position - awa->bubble_position;		//awaとawaの距離を計算する
-		//もしも、距離が一定値以下だったら。
+		//もし、距離が一定値以下だったら消す
 		if (a_a_kyori.Length() <= 10.0) {
 			//クラスターを合成する。
 			auto oldCluster = awa->m_bubbleCluster;

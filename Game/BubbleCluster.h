@@ -21,7 +21,7 @@ public:
 	//クラスターの移動速度を取得。
 	CVector3 GetMoveSpeed() 
 	{
-		return m_moveSpeed;
+		return bcluster_moveSpeed;
 	}
 	void Update();
 	//クラスターを削除。
@@ -31,8 +31,8 @@ private:
 	void UpdateRadius();
 private:
 	std::vector<Bubble*>	m_bubblse;
-	CVector3 m_moveSpeed = CVector3::Zero;
-	CVector3 m_position = CVector3::Zero;
+	CVector3 bcluster_moveSpeed = CVector3::Zero;
+	CVector3 bcluster_position = CVector3::Zero;
 	float m_radius = 0.0f;	//半径。
 };
 
