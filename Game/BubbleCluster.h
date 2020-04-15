@@ -7,11 +7,12 @@ class BubbleCluster : public IGameObject
 {
 public:
 	void OnDestroy() override;
+
 	void AddBubble(Bubble* bubble); 
 	//クラスターを合成
 	void CombineCluster( BubbleCluster* cluster )
 	{
-		TK_LOG("bubble size %d", cluster->m_bubblse.size());
+		//TK_LOG("bubble size %d", cluster->m_bubblse.size());
 		for (auto bubble : cluster->m_bubblse) {
 			AddBubble(bubble);
 		}
@@ -25,7 +26,7 @@ public:
 	}
 	void Update();
 	//クラスターを削除。
-	void DeleteCluster();
+	void DeleteCluster(Bubble* bubble);
 private:
 	void UpdatePosition();
 	void UpdateRadius();
@@ -34,5 +35,7 @@ private:
 	CVector3 bcluster_moveSpeed = CVector3::Zero;
 	CVector3 bcluster_position = CVector3::Zero;
 	float m_radius = 0.0f;	//半径。
+	float m_timer = 0;
+	int pri = 0;
 };
 

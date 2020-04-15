@@ -10,9 +10,6 @@ Bubble::Bubble()
 	isi = FindGO<BubbleCreator>("isi");
 	
 	
-	
-
-	
 	m_player = Player::P_GetInstance();
 }
 
@@ -52,6 +49,7 @@ bool Bubble::Start()
 
 	return true;
 }
+
 Bubble::~Bubble()
 {
 
@@ -62,7 +60,7 @@ Bubble::~Bubble()
 void Bubble::Update()
 {
 	
-
+	
 
 	oyako();
 
@@ -120,12 +118,24 @@ void Bubble::oyako()
 	});
 }
 
-//awa‚ÌDeletaˆ—
+//awa‚ÌUŒ‚ADeletaˆ—
 void Bubble::awa_Delete()
 {
 	CVector3 p_a_kyori = m_player->GetPosition() - bubble_position;
 	if (p_a_kyori.Length() <= 10.0f) {
 		DeleteGO(m_bubbleCluster);
 	}
+}
+
+void Bubble::Deth(float& time)
+{
+	while (Crash) {
+		
+		DethTime -= GameTime().GetFrameDeltaTime();
+		if (DethTime < 0.0f) {
+			Crash = false;
+		}
+	}
+
 }
 

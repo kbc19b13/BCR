@@ -1,31 +1,39 @@
 #include "stdafx.h"
 #include "BubbleCluster.h"
+#include "Player.h"
 
+
+//OnDestroyを呼ぶことによるコンパイルエラー？
 void BubbleCluster::OnDestroy()
 {
 	for (auto bubble : m_bubblse) {
-		DeleteGO(bubble);
+		DeleteCluster(bubble);
+		DeleteGO(this);
 	}
 }
+
+
+//泡の生成時に呼ばれる(自分)
 void BubbleCluster::AddBubble(Bubble* bubble)
 {
 	m_bubblse.push_back(bubble);
 	if (m_bubblse.size() == 1) {
 		//バブル一個なので、速度合成はしない。
 		bcluster_moveSpeed = bubble->GetMoveSpeed();
-	}else{
+	}
+	else {
 		//バブルが複数あるので、重み付きで速度を合成する。
 		//速度を平均化。
 		float originalRate = 1.0f / m_bubblse.size();
 		float rate = originalRate;
-		bcluster_moveSpeed.Lerp( rate, bubble->GetMoveSpeed(), bcluster_moveSpeed ) ;
+		//Lerp = 線形補完
+		bcluster_moveSpeed.Lerp(rate, bubble->GetMoveSpeed(), bcluster_moveSpeed);
 		//速度を泡の大きさに応じて遅くする。
 		bcluster_moveSpeed *= std::powf(originalRate, 0.01f);
 		bcluster_moveSpeed.z = max(0.3f, bcluster_moveSpeed.z);	//画面外に落ちてくれなくなると困るので、zの最小値は0.1にする。
 	}
 	bubble->BindBubbleCluster(this);
-	
-	
+
 }
 void BubbleCluster::UpdatePosition()
 {
@@ -58,9 +66,12 @@ void BubbleCluster::Update()
 	UpdatePosition();
 	//クラスターの半径を更新する。
 	UpdateRadius();
+
+
+	//m_timer++;
 	//反射させる
-	if (bcluster_position.x + m_radius > 75.0f			
-		|| bcluster_position.x - m_radius < -75.0f
+	if (bcluster_position.x + m_radius > 95.0f
+		|| bcluster_position.x - m_radius < -95.0f
 		) {
 		//反射。
 		bcluster_moveSpeed.x *= -1.0f;
@@ -71,7 +82,7 @@ void BubbleCluster::Update()
 	}
 
 }
-void BubbleCluster::DeleteCluster() 
+void BubbleCluster::DeleteCluster(Bubble* bubble)
 {
 	/*
 	クラスターの理解を深める
@@ -86,7 +97,16 @@ void BubbleCluster::DeleteCluster()
 	↑で連鎖させる？
 
 	*/
+	
+		Player* m_player = Player::P_GetInstance();
+		CVector3 Diff = m_player->GetPosition() - bubble->GetPosition();
 
+		bubble->SetDethTime(Diff.Length() * 10.0f);
 
+		bubble->Deth(bubble->GetDethTime());
 
+		//if (bubble->Getcrash() == false) {}
+		//bubble->SetCrash(true);
+		
+	
 }

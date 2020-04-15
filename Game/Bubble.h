@@ -13,6 +13,7 @@ public:
 	//////////メンバ関数//////////
 	bool Start();
 	void Update();
+	
 
 public:
 	//Positionをもらう
@@ -23,15 +24,7 @@ public:
 	void SetPosition(const CVector3& a_pos) {
 		bubble_position = a_pos;
 	}
-	//壁を反射させる
-	void StopPosition(CVector3& pos, CVector3& m_speed) {
-		if (pos.x <= -75.0f) {
-			m_speed.x *= -1.0f;
-		}
-		if (pos.x >= 75.0f) {
-			m_speed.x *= -1.0f;
-		}
-	}
+	
 	
 	//親子関係の処理
 	void oyako();
@@ -47,6 +40,22 @@ public:
 	{
 		m_bubbleCluster = cluster;
 	}
+
+
+	bool Getcrash() {
+		return Crash;
+	}
+	void SetCrash(bool crash) {
+		Crash = crash;
+	}
+	void SetDethTime(const float& time) {
+		DethTime = time;
+	}
+	bool GetDethTime() {
+		return DethTime;
+	}
+	void Deth(float& time);
+
 	//////////メンバ変数//////////
 protected:
 	//スキンモデルレンダー
@@ -71,5 +80,6 @@ protected:
 	BubbleCluster* m_bubbleCluster = nullptr;	//バブルクラスター。
 												
 												//std::vector＝動的配列クラス
-	
+	float DethTime = 0.0f;
+	bool Crash = true;
 };
