@@ -127,7 +127,7 @@ void Bubble::awa_Delete()
 	}
 }
 
-void Bubble::Deth(float& time)
+void Bubble::Deth(float time)
 {
 	while (Crash) {
 		
@@ -135,6 +135,7 @@ void Bubble::Deth(float& time)
 		if (DethTime < 0.0f) {
 			Crash = false;
 		}
+
 	}
 
 }

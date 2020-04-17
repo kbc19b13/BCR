@@ -48,13 +48,13 @@ public:
 	void SetCrash(bool crash) {
 		Crash = crash;
 	}
-	void SetDethTime(const float& time) {
+	void SetDethTime(const float time) {
 		DethTime = time;
 	}
-	bool GetDethTime() {
+	float GetDethTime() {
 		return DethTime;
 	}
-	void Deth(float& time);
+	void Deth(float time);
 
 	//////////ƒƒ“ƒo•Ï”//////////
 protected:
