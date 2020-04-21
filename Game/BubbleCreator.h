@@ -4,6 +4,7 @@
 class Player;
 class Bubble;
 class BubbleChange;
+class BubbleBeautiful;
 
 class BubbleCreator : public IGameObject
 {
@@ -45,4 +46,5 @@ private:
 	Player* m_player = nullptr;
 	Bubble* awa = nullptr;
 	BubbleChange* awa2 = nullptr;
+	BubbleBeautiful* awa3 = nullptr;
 };

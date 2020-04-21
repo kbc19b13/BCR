@@ -47,6 +47,7 @@ private:
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
 	CCharacterController m_charaCon;
 
+	//クラスのロード
 	Bubble* awa = nullptr;
 	Game1* game1 = nullptr;
 	CAnimationClip m_animClips[enAnimationClip_num];

@@ -1764,6 +1764,7 @@
   <ItemGroup>
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="BubbleBeautiful.cpp" />
     <ClCompile Include="BubbleChange.cpp" />
     <ClCompile Include="BubbleCluster.cpp" />
     <ClCompile Include="BubbleCreator.cpp" />
@@ -1808,6 +1809,7 @@
     <ClInclude Include="Assets\shader\skyPS.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="BubbleBeautiful.h" />
     <ClInclude Include="BubbleChange.h" />
     <ClInclude Include="BubbleCluster.h" />
     <ClInclude Include="BubbleCreator.h" />
@@ -1824,6 +1826,7 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
+    <MeshContentTask Include="Assets\modelData\awa_b.FBX" />
     <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
     <MeshContentTask Include="Assets\modelData\doll.FBX" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />

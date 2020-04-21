@@ -41,6 +41,9 @@ public:
 		m_bubbleCluster = cluster;
 	}
 
+	bool GetClean() {
+		return clean;
+	}
 
 	bool Getcrash() {
 		return Crash;
@@ -66,11 +69,15 @@ protected:
 	CVector3 bubble_movespeed = { 0.0f, 0.0f, 0.2f };
 	//方向
 	int direction = 0;
-	//???
+	//移動速度を足し算？
 	CVector3 m_moveSpeedAdd = CVector3::Zero;
 
 	CShaderResourceView m_specMap;	//すぺきゅらマップ
-	
+
+	bool clean = false;
+
+	float DethTime = 0.0f;
+	bool Crash = true;
 
 	//クラスのロード
 	Player* m_player = nullptr;
@@ -80,6 +87,5 @@ protected:
 	BubbleCluster* m_bubbleCluster = nullptr;	//バブルクラスター。
 												
 												//std::vector＝動的配列クラス
-	float DethTime = 0.0f;
-	bool Crash = true;
+	
 };

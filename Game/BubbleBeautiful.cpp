@@ -1,0 +1,51 @@
+#include "stdafx.h"
+#include "Bubble.h"
+#include "Player.h"
+#include "BubbleCreator.h"
+#include "BubbleBeautiful.h"
+#include "BubbleCluster.h"
+
+BubbleBeautiful::BubbleBeautiful()
+{
+
+}
+
+BubbleBeautiful::~BubbleBeautiful()
+{
+
+}
+
+bool BubbleBeautiful::Start()
+{
+	bubble_skinmodelrender = NewGO<prefab::CSkinModelRender>(0);
+	bubble_skinmodelrender->Init(L"modelData/awa_b.cmo");
+	bubble_skinmodelrender->SetPosition(isi->Getposition());
+	bubble_skinmodelrender->SetShadowCasterFlag(true);
+	//すぺきゅらマップをロード。
+	m_specMap.CreateFromDDSTextureFromFile(L"modelData/awa_spec.dds");
+	bubble_skinmodelrender->FindMaterial([&](CModelEffect* mat) {
+		mat->SetSpecularMap(m_specMap.GetBody());
+	});
+	//クラスターはゲーム終了時にまとめて削除しているので、デストラクタでは削除しない。
+	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
+	m_bubbleCluster->AddBubble(this);
+
+	clean = true;
+
+	return true;
+}
+
+void BubbleBeautiful::Update()
+{
+	/*
+	きれいな泡をPlayerがわるとアイテムを落とす→Bulletの当たり判定
+	{
+	・スピードUP？
+	・体力回復？
+	・
+	↑のアイテムをPlayerに追加
+	2D画像(アイテム)の増加
+	*/
+
+
+}

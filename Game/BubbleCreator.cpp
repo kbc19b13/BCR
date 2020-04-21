@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Bubble.h"
 #include "BubbleChange.h"
+#include "BubbleBeautiful.h"
 
 
 BubbleCreator::BubbleCreator()
@@ -43,10 +44,9 @@ void BubbleCreator::Update()
 			state = rand() % 2;
 			if (state == 0)
 			{
-
-				BubbleChange* awa2 = NewGO<BubbleChange>(0, "awa");
-				awa2->SetPosition(bc_position);
-
+				BubbleBeautiful* awa3 = NewGO<BubbleBeautiful>(0, "awa");
+				awa3->SetPosition(bc_position);
+				
 				timer = 0;
 			}
 			if (state == 1)
@@ -60,8 +60,8 @@ void BubbleCreator::Update()
 			if (state == 2)
 			{
 
-				Bubble* awa = NewGO<Bubble>(0, "awa");
-				awa->SetPosition(bc_position);
+				BubbleChange* awa2 = NewGO<BubbleChange>(0, "awa");
+				awa2->SetPosition(bc_position);
 				
 				timer = 0;
 			}
