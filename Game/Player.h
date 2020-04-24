@@ -11,7 +11,7 @@ public:
 
 	void Update() override;
 	bool Start();
-	void AnimationControl();
+	//void AnimationControl();
 
 	const CVector3& GetPosition() const {
 		return m_position;
