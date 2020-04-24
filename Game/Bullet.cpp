@@ -20,6 +20,8 @@ bool Bullet::Start()
 	
 	scale * 5.0f;
 	m_skinModelRender->SetScale(scale);
+
+	awa = FindGO<Bubble>("awa");
 	
 	return true;
 }
@@ -29,13 +31,18 @@ void Bullet::Update()
 	//弾丸を移動させる。
 	m_position += m_moveSpeed;
 
-	/*
-	QueryGOs<Bubble>("bubble", [&](Bubble* bubble)->bool {
+		QueryGOs<Bubble>("bubble", [&](Bubble* bubble)->bool {
 		//２点間の距離を計算する。
 		CVector3 diff = bubble->GetPosition() - m_position;
-		if (bubblet->GetClean() == true) {
+		if (bubble->GetClean() == true) {
 		//アイテムの処理
-
+		int item = rand() % 2;
+		if ( item == 0 ){
+ 			game1->Gets_up() + 1;
+		}
+		if (item == 0) {
+			game1->Gethp_up() + 1;
+		}
 		}
 		if (diff.Length() < 50.0f) {	//距離が50.0f以下になったら。
 		//弾数の減少
@@ -47,7 +54,7 @@ void Bullet::Update()
 		}
 		return true;
 		});
-	*/	
+		
 	
 	//タイマーを加算する。
 	//m_timer++;

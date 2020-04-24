@@ -67,16 +67,19 @@ protected:
 	CVector3 bubble_position = CVector3::Zero;
 	//移動速度
 	CVector3 bubble_movespeed = { 0.0f, 0.0f, 0.2f };
-	//方向
-	int direction = 0;
+	
 	//移動速度を足し算？
 	CVector3 m_moveSpeedAdd = CVector3::Zero;
 
 	CShaderResourceView m_specMap;	//すぺきゅらマップ
 
+	//方向
+	int direction = 0;
+
 	bool clean = false;
 
 	float DethTime = 0.0f;
+
 	bool Crash = true;
 
 	//クラスのロード

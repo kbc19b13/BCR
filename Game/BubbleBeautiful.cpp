@@ -30,6 +30,20 @@ bool BubbleBeautiful::Start()
 	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
 	m_bubbleCluster->AddBubble(this);
 
+	direction = rand() % 3;
+	if (direction == 0) {
+		bubble_movespeed.x = 3.0f;
+		bubble_movespeed.Normalize();
+	}
+	else if (direction == 1) {
+		bubble_movespeed.x = 1.0f;
+		bubble_movespeed.Normalize();
+	}
+	else if (direction == 2) {
+		bubble_movespeed.x = 0.5f;
+		bubble_movespeed.Normalize();
+	}
+
 	clean = true;
 
 	return true;

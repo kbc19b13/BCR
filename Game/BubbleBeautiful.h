@@ -15,7 +15,7 @@ public:
 
 private:
 	
-
 	Game1* game1 = nullptr;
+
 };
 

@@ -26,8 +26,6 @@ bool BubbleCreator::Start()
 
 	isi_skinmodelrender->SetPosition(bc_position);
 
-	//awa->SetPosition(bc_position);
-
 	return true;
 }
 
