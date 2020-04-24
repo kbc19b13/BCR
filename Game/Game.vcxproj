@@ -1854,6 +1854,10 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\awa_spec.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\HPhart.png" />
+    <ImageContentTask Include="Assets\sprite\HPhartBar.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

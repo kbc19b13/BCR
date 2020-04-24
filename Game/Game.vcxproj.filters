@@ -6,6 +6,10 @@
     <ImageContentTask Include="Assets\sprite\SceneSelect.png" />
     <ImageContentTask Include="Assets\sprite\hp_bar.png" />
     <ImageContentTask Include="Assets\sprite\hp.png" />
+    <ImageContentTask Include="Assets\modelData\water_spec.png" />
+    <ImageContentTask Include="Assets\modelData\awa_spec.jpg" />
+    <ImageContentTask Include="Assets\sprite\HPhart.png" />
+    <ImageContentTask Include="Assets\sprite\HPhartBar.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -63,9 +67,5 @@
   <ItemGroup>
     <None Include="Assets\level\kawa_le.tkl" />
     <None Include="Assets\level\level_00.tkl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\modelData\water_spec.png" />
-    <Image Include="Assets\modelData\awa_spec.jpg" />
   </ItemGroup>
 </Project>

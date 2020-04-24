@@ -49,10 +49,10 @@ bool Game2::Start()
 {
 	//スプライトを初期化。
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
+	m_spriteRender->Init(L"sprite/HPhartBar.dds", 50, 50);
 
 	h_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	h_spriteRender->Init(L"sprite/hp.dds", 285, 30);
+	h_spriteRender->Init(L"sprite/HPhart.dds", 50, 50 );
 
 
 	return true;

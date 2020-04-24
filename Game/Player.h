@@ -22,7 +22,7 @@ public:
 		m_position =  p_pos;
 	}
 
-
+	int m_timer = 0;
 
 	/////////Singletonƒpƒ^[ƒ“///////////////
 		//Player‚ğˆê‘Ì‚ÉŒÀ’è

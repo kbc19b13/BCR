@@ -64,7 +64,7 @@ void Bubble::Update()
 
 	oyako();
 
-	awa_Delete();
+	//awa_Delete();
 
 	
 

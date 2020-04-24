@@ -80,12 +80,16 @@ void Player::Update()
 
 	m_skinModelRender->SetPosition(m_position);
 
-	if (Pad(0).IsPress(enButtonA)) {
+	m_timer++;
+
+	if (Pad(0).IsPress(enButtonA)&& m_timer >= 2) {
 		Bullet* bullet = NewGO<Bullet>(0);
 		//弾丸の座標にプレイヤーの座標を代入する。
 		bullet->m_position = m_position;
 		//Z軸方向に400の速度を設定する。
 		bullet->m_moveSpeed.z = 400.0f;
+
+		m_timer = 0;
 
 	}
 	
