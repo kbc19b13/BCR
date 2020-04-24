@@ -33,8 +33,8 @@
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
-    <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
     <MeshContentTask Include="Assets\modelData\Player.FBX" />
+    <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
