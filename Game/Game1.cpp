@@ -42,17 +42,25 @@ bool Game1::Start()
 	m_skin = NewGO<prefab::CSkinModelRender>(0);
 	m_skin->Init(L"modelData/awa.cmo");
 	m_skin->SetPosition(pos);
+	////////////////////////////////////////
 
-	//スプライトを初期化。
+	//HPバー枠のスプライトを初期化。
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
-
+	//HPバーのスプライトを初期化
 	h_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	
+
 	
+	
+	//アイテムのスプライトを初期化。
+	//hp_up_spriteRender = NewGO<prefab::CSpriteRender>(0);
+	//hp_up_spriteRender->Init(L"sprite/.dds", 300, 50);
+
+
 	//クラスの作成
-	m_player = NewGO<Player>(0, "doll");
-	m_camera = NewGO<Camera>(0);
+	Player* m_player = NewGO<Player>(0, "doll");
+	Camera* m_camera = NewGO<Camera>(0);
 	
 
 	////////////////////////////////////////////////////////
@@ -97,6 +105,22 @@ bool Game1::Start()
 void Game1::Update()
 {
 	
+	for (int i = 0; i > s_up; i++)
+	{
+
+		s_up_spriteRender[i] = NewGO<prefab::CSpriteRender>(0);
+		s_up_spriteRender[i]->Init(L"sprite/hp_bar.dds", 300, 50);
+		s_up_position.x += i * 10;
+		s_up_spriteRender[i]->SetPosition(s_up_position);
+
+	}
+
+	/*
+	//アイテム使用
+	//if文で使用の判定＆デクリメントする
+	s_up--;
+	*/
+
 
 	if (Pad(0).IsPress(enButtonSelect)) {
 		NewGO<SceneSelect>(0);

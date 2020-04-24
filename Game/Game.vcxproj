@@ -1764,6 +1764,7 @@
   <ItemGroup>
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="Bubble.cpp" />
+    <ClCompile Include="BubbleBeautiful.cpp" />
     <ClCompile Include="BubbleChange.cpp" />
     <ClCompile Include="BubbleCluster.cpp" />
     <ClCompile Include="BubbleCreator.cpp" />
@@ -1774,6 +1775,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|Win32'">Create</PrecompiledHeader>
@@ -1808,6 +1810,7 @@
     <ClInclude Include="Assets\shader\skyPS.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="Bubble.h" />
+    <ClInclude Include="BubbleBeautiful.h" />
     <ClInclude Include="BubbleChange.h" />
     <ClInclude Include="BubbleCluster.h" />
     <ClInclude Include="BubbleCreator.h" />
@@ -1818,15 +1821,15 @@
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="SceneSelect.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
     <ResourceCompile Include="Game.rc" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
-    <MeshContentTask Include="Assets\modelData\Bullet.FBX">
-      <FileType>Document</FileType>
-    </MeshContentTask>
+    <MeshContentTask Include="Assets\modelData\awa_b.FBX" />
+    <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
     <MeshContentTask Include="Assets\modelData\doll.FBX" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />

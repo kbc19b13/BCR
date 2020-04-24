@@ -105,8 +105,6 @@ void BubbleCluster::DeleteCluster(Bubble* bubble)
 
 		bubble->Deth(bubble->GetDethTime());
 
-		//if (bubble->Getcrash() == false) {}
-		//bubble->SetCrash(true);
 		
 	
 }

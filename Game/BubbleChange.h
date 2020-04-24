@@ -14,8 +14,7 @@ public:
 	bool Start();
 
 private:
-
-	int direction = 0;
+	
 
 
 };

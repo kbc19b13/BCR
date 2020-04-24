@@ -83,41 +83,25 @@ void Player::Update()
 	m_timer++;
 
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 2) {
+	if (Pad(0).IsPress(enButtonY)) {
+
 		Bullet* bullet = NewGO<Bullet>(0);
 		//弾丸の座標にプレイヤーの座標を代入する。
-		bullet->m_position = m_position;
+		bullet->SetPosition(m_position);
 		//Z軸方向に400の速度を設定する。
 		bullet->m_moveSpeed.z = 400.0f;
 
 		m_timer = 0;
 
+		bullet->SetMoveSpeed({ 0.0f, 0.0f, 40.0f });
 	}
 	
-	/*
-	QueryGOs<Bubble>("awa", [&](Bubble* awa)->bool {
-		//２点間の距離を計算する。
-		CVector3 diff = awa->GetPosition() - m_position;
-		if (diff.Length() < 50.0f) {	//距離が500以下になったら。
-
-			//GameOver2Dを作成する。
-			//NewGO<GameOver2D>(0);
-
-			CVector3 a = game1->GetScale();
-			a.x -= 2.0f;
-			game1->SetScale(a);
-
-			//game1->s -= 2.0f;
-
-			//クエリ終了。
-			return false;
-		}
-		return true;
-		});
-		*/
+	
 
 	m_position = m_charaCon.Execute(m_moveSpeed);
 	m_skinModelRender->SetPosition(m_position);
 }
+
 void Player::AnimationControl()
 {
 	

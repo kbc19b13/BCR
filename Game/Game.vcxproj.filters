@@ -26,6 +26,8 @@
     <ClCompile Include="BubbleChange.cpp" />
     <ClCompile Include="BubbleCluster.cpp" />
     <ClCompile Include="BackGround.cpp" />
+    <ClCompile Include="BubbleBeautiful.cpp" />
+    <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
@@ -35,6 +37,8 @@
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
+    <MeshContentTask Include="Assets\modelData\Player.FBX" />
+    <MeshContentTask Include="Assets\modelData\awa_b.FBX" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
@@ -60,6 +64,8 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="BubbleCluster.h" />
     <ClInclude Include="BackGround.h" />
+    <ClInclude Include="BubbleBeautiful.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />
