@@ -2,7 +2,7 @@
 #include "tkEngine/physics/tkPhysicsGhostObject.h"
 #include "tkEngine/character/tkCharacterController.h"
 #include "Player.h"
-#include "Sprite.h"
+
 //‘O•ûéŒ¾
 class BubbleCreator;
 class Camera;
