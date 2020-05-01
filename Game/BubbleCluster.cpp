@@ -68,7 +68,6 @@ void BubbleCluster::Update()
 	UpdateRadius();
 
 
-	//m_timer++;
 	//”½ŽË‚³‚¹‚é
 	if (bcluster_position.x + m_radius > 95.0f
 		|| bcluster_position.x - m_radius < -95.0f

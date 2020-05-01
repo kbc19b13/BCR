@@ -26,9 +26,6 @@ bool BubbleBeautiful::Start()
 	bubble_skinmodelrender->FindMaterial([&](CModelEffect* mat) {
 		mat->SetSpecularMap(m_specMap.GetBody());
 	});
-	//クラスターはゲーム終了時にまとめて削除しているので、デストラクタでは削除しない。
-	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
-	m_bubbleCluster->AddBubble(this);
 
 	direction = rand() % 3;
 	if (direction == 0) {
@@ -43,6 +40,10 @@ bool BubbleBeautiful::Start()
 		bubble_movespeed.x = 0.5f;
 		bubble_movespeed.Normalize();
 	}
+
+	//クラスターはゲーム終了時にまとめて削除しているので、デストラクタでは削除しない。
+	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
+	m_bubbleCluster->AddBubble(this);
 
 	clean = true;
 
