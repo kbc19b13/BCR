@@ -50,9 +50,7 @@ bool BubbleBeautiful::Start()
 	return true;
 }
 
-void BubbleBeautiful::Update()
-{
-	/*
+/*
 	きれいな泡をPlayerがわるとアイテムを落とす→Bulletの当たり判定
 	{
 	・スピードUP？
@@ -60,7 +58,5 @@ void BubbleBeautiful::Update()
 	・
 	↑のアイテムをPlayerに追加
 	2D画像(アイテム)の増加
-	*/
+*/
 
-
-}

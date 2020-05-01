@@ -27,19 +27,14 @@ public:
 
 	//////////メンバ変数//////////
 private:
-	int seisei = 0;
+	
 	int state = 0;
 	int timer = 0;
 
 	CVector3 bc_position = CVector3::Zero;
 
-	
 
 	prefab::CSkinModelRender* isi_skinmodelrender = nullptr;
-
-
-
-
 
 
 	//クラスのロード

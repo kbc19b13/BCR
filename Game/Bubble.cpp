@@ -64,7 +64,8 @@ void Bubble::Update()
 
 	oyako();
 
-	//awa_Delete();
+	//Player‚ÆBubble‚Ì“–‚½‚è”»’è
+	awa_Delete();
 
 	
 

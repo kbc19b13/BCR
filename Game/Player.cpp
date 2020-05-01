@@ -82,7 +82,7 @@ void Player::Update()
 
 	m_timer++;
 
-	if (Pad(0).IsPress(enButtonA)&& m_timer >= 2) {
+	if (Pad(0).IsPress(enButtonA)&& m_timer >= 20) {
 	
 
 		Bullet* bullet = NewGO<Bullet>(0);

@@ -26,7 +26,7 @@ void BubbleCluster::AddBubble(Bubble* bubble)
 		//速度を平均化。
 		float originalRate = 1.0f / m_bubblse.size();
 		float rate = originalRate;
-		//Lerp = 線形補完
+		//Lerp = 線形補完(なめらかに)
 		bcluster_moveSpeed.Lerp(rate, bubble->GetMoveSpeed(), bcluster_moveSpeed);
 		//速度を泡の大きさに応じて遅くする。
 		bcluster_moveSpeed *= std::powf(originalRate, 0.01f);
@@ -83,6 +83,7 @@ void BubbleCluster::Update()
 }
 void BubbleCluster::DeleteCluster(Bubble* bubble)
 {
+
 	/*
 	クラスターの理解を深める
 	Delete処理の実装
@@ -104,6 +105,4 @@ void BubbleCluster::DeleteCluster(Bubble* bubble)
 
 		bubble->Deth(bubble->GetDethTime());
 
-		
-	
 }
