@@ -13,7 +13,7 @@ public:
 
 	//////////ƒƒ“ƒoŠÖ”//////////
 	bool Start();
-	
+	void Update();
 
 private:
 	

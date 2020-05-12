@@ -36,9 +36,15 @@ public:
 	CVector3 GetMoveSpeed() {
 		return bubble_movespeed;
 	}
+
 	void BindBubbleCluster(BubbleCluster* cluster)
 	{
 		m_bubbleCluster = cluster;
+	}
+
+	bool Getbubblecluster()
+	{
+		return m_bubbleCluster;
 	}
 
 	bool GetClean() {
@@ -51,14 +57,8 @@ public:
 	void SetCrash(bool crash) {
 		Crash = crash;
 	}
-	void SetDethTime(const float time) {
-		DethTime = time;
-	}
-	float GetDethTime() {
-		return DethTime;
-	}
-	void Deth(float time);
-
+	
+	
 	//////////メンバ変数//////////
 protected:
 	//スキンモデルレンダー
@@ -78,7 +78,7 @@ protected:
 
 	bool clean = false;
 
-	float DethTime = 0.0f;
+	//float DethTime = 0.0f;
 
 	bool Crash = true;
 

@@ -6,12 +6,49 @@
 //OnDestroyを呼ぶことによるコンパイルエラー？
 void BubbleCluster::OnDestroy()
 {
+	//auto it = m_bubblse;
 	for (auto bubble : m_bubblse) {
+
 		DeleteCluster(bubble);
-		DeleteGO(this);
+
+
+
+		DeleteGO(bubble);//OnDestroy
+
 	}
 }
 
+void BubbleCluster::DeleteCluster(Bubble* bubble)
+{
+
+	/*
+	クラスターの理解を深める
+	Delete処理の実装
+	｛
+	（半径を使用してif文を作成）
+	クラスター全体消去から個体消去に変換
+	子供のリストから一個ずつ消していく
+	最後に親を消す
+	クラスターと一緒に泡も消える
+	｝
+	↑で連鎖させる？
+
+	*/
+
+	Player* m_player = Player::P_GetInstance();
+	Diff = m_player->GetPosition() - bubble->GetPosition();
+
+	DethTime = Diff.Length() * 10.0f;
+
+	while (DethTime > 0.0f) {	//()がfalseになるとループを抜ける
+
+		//DethTime -= GameTime().GetFrameDeltaTime();
+		DethTime -= a;
+	}
+
+
+
+}
 
 //泡の生成時に呼ばれる(自分)
 void BubbleCluster::AddBubble(Bubble* bubble)
@@ -79,30 +116,5 @@ void BubbleCluster::Update()
 	if (bcluster_position.z - m_radius > 0.0f) {
 		DeleteGO(this);
 	}
-
-}
-void BubbleCluster::DeleteCluster(Bubble* bubble)
-{
-
-	/*
-	クラスターの理解を深める
-	Delete処理の実装
-	｛
-	（半径を使用してif文を作成）
-	クラスター全体消去から個体消去に変換
-	子供のリストから一個ずつ消していく
-	最後に親を消す
-	クラスターと一緒に泡も消える
-	｝
-	↑で連鎖させる？
-
-	*/
-	
-		Player* m_player = Player::P_GetInstance();
-		CVector3 Diff = m_player->GetPosition() - bubble->GetPosition();
-
-		bubble->SetDethTime(Diff.Length() * 10.0f);
-
-		bubble->Deth(bubble->GetDethTime());
 
 }
