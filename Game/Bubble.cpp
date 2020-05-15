@@ -56,20 +56,45 @@ Bubble::~Bubble()
 	DeleteGO(bubble_skinmodelrender);
 
 }
+//更新処理の共通処理
+void Bubble::UpdateCommon()
+{
+	switch (m_state)
+	{
+	case State_Normal:
 
+		//通常の処理
+		oyako();
+		//PlayerとBubbleの当たり判定
+		awa_Delete();
+		bubble_skinmodelrender->SetPosition(bubble_position);
+		break;
+
+	case State_RequestDead:
+
+		//死亡リクエストが来ているときの処理
+		m_deadTimer--;
+
+		Deathscale += Deathscale * 0.01;
+
+		//スケールを大きくする
+		bubble_skinmodelrender->SetScale(Deathscale);
+
+		if (m_deadTimer < 0) {
+			//タイマーが0以下になったので死亡。
+			prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
+			effect->Play(L"effect/test2.efk");
+			effect->SetPosition(bubble_position);
+			DeleteGO(this);
+		}
+		
+
+		break;
+	}
+}
 void Bubble::Update()
 {
-	
-	
-
-	oyako();
-
-	//PlayerとBubbleの当たり判定
-	awa_Delete();
-
-	
-
-	bubble_skinmodelrender->SetPosition(bubble_position);
+	UpdateCommon();	
 }
 
 //awaの親子関係
@@ -79,7 +104,7 @@ void Bubble::oyako()
 	bubble_position += m_bubbleCluster->GetMoveSpeed() + m_moveSpeedAdd;
 	
 	QueryGOs<Bubble>("awa", [&](Bubble* awa) {
-		if (awa == this) {
+		if (awa == this || awa->StateIsRequestDead()) {
 			return true;
 		}
 		if (awa->m_bubbleCluster == m_bubbleCluster) {
@@ -105,8 +130,8 @@ void Bubble::awa_Delete()
 {
 	CVector3 p_a_kyori = m_player->GetPosition() - bubble_position;
 	if (p_a_kyori.Length() <= 10.0f) {
-		//DeleteGO(m_bubbleCluster);
-		DeleteGO(this);
+		DeleteGO(m_bubbleCluster);
+		//DeleteGO(this);
 	}
 }
 

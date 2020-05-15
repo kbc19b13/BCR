@@ -8,32 +8,31 @@ void BubbleCluster::OnDestroy()
 {
 	//auto it = m_bubblse;
 	for (auto bubble : m_bubblse) {
-
-		DeleteCluster(bubble);
-
-
-
-		DeleteGO(bubble);//OnDestroy
+		//泡に死亡リクエストを送る
+		Player* m_player = Player::P_GetInstance();
+		Diff = m_player->GetPosition() - bubble->GetPosition();
+		bubble->RequestDead( Diff.Length() * 3.0f );
 
 	}
 }
 
+/*
 void BubbleCluster::DeleteCluster(Bubble* bubble)
 {
 
-	/*
-	クラスターの理解を深める
-	Delete処理の実装
-	｛
-	（半径を使用してif文を作成）
-	クラスター全体消去から個体消去に変換
-	子供のリストから一個ずつ消していく
-	最後に親を消す
-	クラスターと一緒に泡も消える
-	｝
-	↑で連鎖させる？
+	
+	//クラスターの理解を深める
+	//Delete処理の実装
+	//｛
+	//（半径を使用してif文を作成）
+	//クラスター全体消去から個体消去に変換
+	//子供のリストから一個ずつ消していく
+	//最後に親を消す
+	//クラスターと一緒に泡も消える
+	//｝
+	//↑で連鎖させる？
 
-	*/
+	
 
 	Player* m_player = Player::P_GetInstance();
 	Diff = m_player->GetPosition() - bubble->GetPosition();
@@ -49,6 +48,7 @@ void BubbleCluster::DeleteCluster(Bubble* bubble)
 
 
 }
+*/
 
 //泡の生成時に呼ばれる(自分)
 void BubbleCluster::AddBubble(Bubble* bubble)

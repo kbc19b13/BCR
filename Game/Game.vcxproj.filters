@@ -72,4 +72,7 @@
     <None Include="Assets\level\kawa_le.tkl" />
     <None Include="Assets\level\level_00.tkl" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\modelData\b_awa_spec.png" />
+  </ItemGroup>
 </Project>

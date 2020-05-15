@@ -22,11 +22,11 @@ bool BubbleBeautiful::Start()
 	bubble_skinmodelrender->SetPosition(isi->Getposition());
 	bubble_skinmodelrender->SetShadowCasterFlag(true);
 	//すぺきゅらマップをロード。
-	m_specMap.CreateFromDDSTextureFromFile(L"modelData/awa_spec.dds");
+	m_specMap.CreateFromDDSTextureFromFile(L"modelData/b_awa_spec.dds");
 	bubble_skinmodelrender->FindMaterial([&](CModelEffect* mat) {
 		mat->SetSpecularMap(m_specMap.GetBody());
 	});
-
+	bubble_skinmodelrender->SetEmissionColor({ 0.2f, 0.2f, 0.1f });
 	direction = rand() % 3;
 	if (direction == 0) {
 		bubble_movespeed.x = 3.0f;
@@ -61,16 +61,6 @@ void BubbleBeautiful::Update()
 	↑のアイテムをPlayerに追加
 	2D画像(アイテム)の増加
 */
-
-
-
-
-	oyako();
-
-	//PlayerとBubbleの当たり判定
-	awa_Delete();
-
-
-
-	bubble_skinmodelrender->SetPosition(bubble_position);
+	
+	UpdateCommon();
 }

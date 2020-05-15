@@ -13,8 +13,9 @@ public:
 	//////////メンバ関数//////////
 	bool Start();
 	void Update();
-	
-
+protected:
+	//更新処理の共通処理
+	void UpdateCommon();
 public:
 	//Positionをもらう
 	const CVector3& GetPosition() const {
@@ -24,8 +25,17 @@ public:
 	void SetPosition(const CVector3& a_pos) {
 		bubble_position = a_pos;
 	}
-	
-	
+	//死亡リクエスト
+	void RequestDead(int timer) {
+		//状態を死亡リクエストに変更。
+		m_state = State_RequestDead;
+		//死ぬまでの時間を設定。
+		m_deadTimer = timer;
+	}
+	bool StateIsRequestDead() const
+	{
+		return m_state == State_RequestDead;
+	}
 	//親子関係の処理
 	void oyako();
 
@@ -61,6 +71,12 @@ public:
 	
 	//////////メンバ変数//////////
 protected:
+	enum State {
+		State_Normal,
+		State_RequestDead,
+	};
+	State m_state = State_Normal;
+	int m_deadTimer = 0;	//死亡タイマー
 	//スキンモデルレンダー
 	prefab::CSkinModelRender* bubble_skinmodelrender = nullptr;
 	//座標
@@ -70,6 +86,8 @@ protected:
 	
 	//移動速度を足し算？
 	CVector3 m_moveSpeedAdd = CVector3::Zero;
+
+	CVector3 Deathscale = CVector3::One;
 
 	CShaderResourceView m_specMap;	//すぺきゅらマップ
 
