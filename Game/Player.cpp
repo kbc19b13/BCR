@@ -88,8 +88,8 @@ void Player::Update()
 		Bullet* bullet = NewGO<Bullet>(0);
 		//弾丸の座標にプレイヤーの座標を代入する。
 		bullet->SetPosition(m_position);
-		//Z軸方向に40の速度を設定する。
-		bullet->SetMoveSpeed({ 0.0f, 0.0f, 40.0f });
+		//Z軸方向に5の速度を設定する。
+		bullet->SetMoveSpeed({ 0.0f, 0.0f, -5.0f });
 
 		m_timer = 0;
 
