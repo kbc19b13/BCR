@@ -30,14 +30,13 @@
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
-    <MeshContentTask Include="Assets\modelData\doll.FBX" />
     <MeshContentTask Include="Assets\modelData\kawa.FBX" />
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
-    <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
     <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\awa_b.FBX" />
+    <MeshContentTask Include="Assets\modelData\KPlayer.fbx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />

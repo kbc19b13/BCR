@@ -36,7 +36,7 @@ bool Player::Start()
 
 	m_skinModelRender = NewGO<prefab::CSkinModelRender>(0);
 
-	m_skinModelRender->Init(L"modelData/doll.cmo"/*, m_animClips, 1*/);
+	m_skinModelRender->Init(L"modelData/KPlayer.cmo"/*, m_animClips, 1*/);
 	m_skinModelRender->SetShadowCasterFlag(true);
 	m_skinModelRender->FindMaterial([&](CModelEffect* mat) {
 		mat->SetMaterialID(enMaterialID_Default);
