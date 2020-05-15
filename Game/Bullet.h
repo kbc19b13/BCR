@@ -3,6 +3,7 @@ class Game1;
 class Bubble;
 
 
+
 class Bullet : public IGameObject
 {
 public:
@@ -36,5 +37,6 @@ private:
 	//クラスのロード
 	Game1* game1 = nullptr;
 	Bubble* awa = nullptr;
+
 };
 

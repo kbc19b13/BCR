@@ -21,7 +21,7 @@ bool Bullet::Start()
 	scale * 5.0f;
 	m_skinModelRender->SetScale(scale);
 
-	awa = FindGO<Bubble>("awa");
+	
 	
 	return true;
 }
@@ -31,12 +31,13 @@ void Bullet::Update()
 	//弾丸を移動させる。
 	m_position += m_moveSpeed;
 
-		QueryGOs<Bubble>("bubble", [&](Bubble* bubble)->bool 
+		QueryGOs<Bubble>("awa", [&](Bubble* awa)->bool 
 		{
+			
 			//泡と弾の２点間の距離を計算する。
-			CVector3 diff = bubble->GetPosition() - m_position;
+			CVector3 diff = awa->GetPosition() - m_position;
 			//きれいな泡なら
-			if (bubble->GetClean() == true) 
+			if (awa->GetClean() == true) 
 			{
 				//アイテムの処理
 				int item = rand() % 2;
@@ -48,11 +49,11 @@ void Bullet::Update()
 				}
 			}
 			//距離が50.0f以下になったら消す
-			if (diff.Length() < 50.0f) 
+			if (diff.Length() < 10.0f) 
 			{	
 				//弾数の減少
 
-				DeleteGO(bubble);
+				DeleteGO(awa);
 
 				//クエリ終了。
 				return false;
