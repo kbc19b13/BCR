@@ -105,20 +105,8 @@ void Bubble::awa_Delete()
 {
 	CVector3 p_a_kyori = m_player->GetPosition() - bubble_position;
 	if (p_a_kyori.Length() <= 10.0f) {
-		DeleteGO(m_bubbleCluster);
+		//DeleteGO(m_bubbleCluster);
+		DeleteGO(this);
 	}
-}
-
-void Bubble::Deth(float time)
-{
-	while (Crash) {
-		
-		DethTime -= GameTime().GetFrameDeltaTime();
-		if (DethTime < 0.0f) {
-			Crash = false;
-		}
-
-	}
-
 }
 

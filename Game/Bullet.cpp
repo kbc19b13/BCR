@@ -31,27 +31,32 @@ void Bullet::Update()
 	//弾丸を移動させる。
 	m_position += m_moveSpeed;
 
-		QueryGOs<Bubble>("bubble", [&](Bubble* bubble)->bool {
-		//２点間の距離を計算する。
-		CVector3 diff = bubble->GetPosition() - m_position;
-		if (bubble->GetClean() == true) {
-		//アイテムの処理
-		int item = rand() % 2;
-		if ( item == 0 ){
- 			game1->Gets_up() + 1;
-		}
-		if (item == 0) {
-			game1->Gethp_up() + 1;
-		}
-		}
-		if (diff.Length() < 50.0f) {	//距離が50.0f以下になったら。
-		//弾数の減少
+		QueryGOs<Bubble>("bubble", [&](Bubble* bubble)->bool 
+		{
+			//泡と弾の２点間の距離を計算する。
+			CVector3 diff = bubble->GetPosition() - m_position;
+			//きれいな泡なら
+			if (bubble->GetClean() == true) 
+			{
+				//アイテムの処理
+				int item = rand() % 2;
+				if ( item == 0 ){
+ 					game1->Gets_up() + 1;
+				}
+				if (item == 0) {
+					game1->Gethp_up() + 1;
+				}
+			}
+			//距離が50.0f以下になったら消す
+			if (diff.Length() < 50.0f) 
+			{	
+				//弾数の減少
 
-			DeleteGO(bubble);
+				DeleteGO(bubble);
 
-			//クエリ終了。
-			return false;
-		}
+				//クエリ終了。
+				return false;
+			}
 		return true;
 		});
 		

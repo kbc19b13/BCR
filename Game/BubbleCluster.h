@@ -35,5 +35,11 @@ private:
 	CVector3 bcluster_moveSpeed = CVector3::Zero;
 	CVector3 bcluster_position = CVector3::Zero;
 	float m_radius = 0.0f;	//îºåaÅB
+
+	CVector3 Diff = CVector3::Zero;
+
+	float DethTime = 0.0f;
+
+	float a = 0.1f;
 };
 

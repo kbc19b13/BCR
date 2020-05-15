@@ -50,7 +50,9 @@ bool BubbleBeautiful::Start()
 	return true;
 }
 
-/*
+void BubbleBeautiful::Update()
+{
+	/*
 	きれいな泡をPlayerがわるとアイテムを落とす→Bulletの当たり判定
 	{
 	・スピードUP？
@@ -60,3 +62,15 @@ bool BubbleBeautiful::Start()
 	2D画像(アイテム)の増加
 */
 
+
+
+
+	oyako();
+
+	//PlayerとBubbleの当たり判定
+	awa_Delete();
+
+
+
+	bubble_skinmodelrender->SetPosition(bubble_position);
+}
