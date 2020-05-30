@@ -36,18 +36,20 @@ void Bullet::Update()
 			
 			//泡と弾の２点間の距離を計算する。
 			CVector3 diff = awa->GetPosition() - m_position;
+
 			//きれいな泡なら
 			//if (awa->GetClean() == true) 
 			//{
 			//	//アイテムの処理
 			//	int item = rand() % 2;
 			//	if ( item == 0 ){
- 		//			game1->Gets_up() + 1;
+ 			//		game1->Gets_up() + 1;
 			//	}
 			//	if (item == 0) {
 			//		game1->Gethp_up() + 1;
 			//	}
 			//}
+
 			//距離が50.0f以下になったら消す
 			if (diff.Length() < 10.0f) 
 			{	

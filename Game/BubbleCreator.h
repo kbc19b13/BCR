@@ -29,7 +29,7 @@ public:
 private:
 	
 	int state = 0;
-	int timer = 0;
+	int timer = 50;
 
 	CVector3 bc_position = CVector3::Zero;
 

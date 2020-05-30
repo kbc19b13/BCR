@@ -17,6 +17,8 @@ BubbleBeautiful::~BubbleBeautiful()
 
 bool BubbleBeautiful::Start()
 {
+	///////////////////////////////////////////////////////////////////
+
 	bubble_skinmodelrender = NewGO<prefab::CSkinModelRender>(0);
 	bubble_skinmodelrender->Init(L"modelData/awa_b.cmo");
 	bubble_skinmodelrender->SetPosition(isi->Getposition());
@@ -27,6 +29,9 @@ bool BubbleBeautiful::Start()
 		mat->SetSpecularMap(m_specMap.GetBody());
 	});
 	bubble_skinmodelrender->SetEmissionColor({ 0.2f, 0.2f, 0.1f });
+
+	/////////////////////////////////////////////////////////////////////
+
 	direction = rand() % 3;
 	if (direction == 0) {
 		bubble_movespeed.x = 3.0f;
@@ -45,6 +50,7 @@ bool BubbleBeautiful::Start()
 	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
 	m_bubbleCluster->AddBubble(this);
 
+	//きれいな泡
 	clean = true;
 
 	return true;
@@ -52,6 +58,7 @@ bool BubbleBeautiful::Start()
 
 void BubbleBeautiful::Update()
 {
+
 	/*
 	きれいな泡をPlayerがわるとアイテムを落とす→Bulletの当たり判定
 	{
@@ -60,7 +67,9 @@ void BubbleBeautiful::Update()
 	・
 	↑のアイテムをPlayerに追加
 	2D画像(アイテム)の増加
-*/
+	*/
 	
+
+	//共通処理
 	UpdateCommon();
 }

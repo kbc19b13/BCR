@@ -9,12 +9,13 @@ Bubble::Bubble()
 {
 	isi = FindGO<BubbleCreator>("isi");
 	
-	
 	m_player = Player::P_GetInstance();
 }
 
 bool Bubble::Start()
 {
+	///////////すぺきゅらマップ.気にしない/////////////////////////////
+
 	bubble_skinmodelrender = NewGO<prefab::CSkinModelRender>(0);
 	bubble_skinmodelrender->Init(L"modelData/awa.cmo");
 	bubble_skinmodelrender->SetPosition(isi->Getposition());
@@ -24,6 +25,9 @@ bool Bubble::Start()
 	bubble_skinmodelrender->FindMaterial([&](CModelEffect* mat) {
 		mat->SetSpecularMap(m_specMap.GetBody());
 	});
+
+	/////////////////////////////////////////////////////////////////////
+
 	//クラスターはゲーム終了時にまとめて削除しているので、デストラクタでは削除しない。
 	m_bubbleCluster = NewGO<BubbleCluster>(0, "バブルクラスター");
 	m_bubbleCluster->AddBubble(this);
@@ -56,35 +60,41 @@ Bubble::~Bubble()
 	DeleteGO(bubble_skinmodelrender);
 
 }
+
 //更新処理の共通処理
 void Bubble::UpdateCommon()
 {
 	switch (m_state)
 	{
+		//通常処理
 	case State_Normal:
 
-		//通常の処理
 		oyako();
 		//PlayerとBubbleの当たり判定
 		awa_Delete();
 		bubble_skinmodelrender->SetPosition(bubble_position);
 		break;
 
+		//死亡リクエストが来ているときの処理
 	case State_RequestDead:
 
-		//死亡リクエストが来ているときの処理
-		m_deadTimer--;
-
-		Deathscale += Deathscale * 0.01;
-
-		//スケールを大きくする
-		bubble_skinmodelrender->SetScale(Deathscale);
-
-		if (m_deadTimer < 0) {
+		m_deadTimer -= 0.5f;
+		Deathscale += Deathscale * 0.005;
+		if (Deathscale.x <  1.35f && Deathscale.y < 1.35f && Deathscale.z < 1.35f ) {
+			//スケールを大きくする
+			bubble_skinmodelrender->SetScale(Deathscale);
+		}
+		
+		
+		
+		if (m_deadTimer < 0.0f ) {
 			//タイマーが0以下になったので死亡。
+
+			//エフェクト再生
 			prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
 			effect->Play(L"effect/test2.efk");
 			effect->SetPosition(bubble_position);
+
 			DeleteGO(this);
 		}
 		
@@ -92,6 +102,7 @@ void Bubble::UpdateCommon()
 		break;
 	}
 }
+
 void Bubble::Update()
 {
 	UpdateCommon();	
@@ -104,20 +115,24 @@ void Bubble::oyako()
 	bubble_position += m_bubbleCluster->GetMoveSpeed() + m_moveSpeedAdd;
 	
 	QueryGOs<Bubble>("awa", [&](Bubble* awa) {
-		if (awa == this || awa->StateIsRequestDead()) {
+		////////////////////////////////////////////////////////////////////
+		if (awa == this || awa->StateIsRequestDead()) {		//死亡している
 			return true;
 		}
-		if (awa->m_bubbleCluster == m_bubbleCluster) {
-			//同じクラスター
+		if (awa->m_bubbleCluster == m_bubbleCluster) {		//同じクラスター
 			return true;
 		}
+		///////////////////////////////////////////////////////////////////
+
 		//距離で消す
 		CVector3 a_a_kyori = bubble_position - awa->bubble_position;		//awaとawaの距離を計算する
 		//もし、距離が一定値以下だったら消す
 		if (a_a_kyori.Length() <= 10.0) {
+			
 			//クラスターを合成する。
 			auto oldCluster = awa->m_bubbleCluster;
 			m_bubbleCluster->CombineCluster(awa->m_bubbleCluster);
+			
 			//古いのクラスターを削除。
 			DeleteGO(oldCluster);
 		}
@@ -130,6 +145,8 @@ void Bubble::awa_Delete()
 {
 	CVector3 p_a_kyori = m_player->GetPosition() - bubble_position;
 	if (p_a_kyori.Length() <= 10.0f) {
+		//Playerの体力減少！！
+
 		DeleteGO(m_bubbleCluster);
 	}
 }

@@ -1843,6 +1843,7 @@
     <ImageContentTask Include="Assets\sprite\SceneSelect.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\effect\kawa.efk" />
     <None Include="Assets\level\kawa_le.tkl" />
     <None Include="Assets\level\level_00.tkl" />
   </ItemGroup>

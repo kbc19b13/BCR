@@ -6,6 +6,7 @@
 //前方宣言
 class BubbleCreator;
 class Camera;
+class BackGround;
 
 class Game1 : public IGameObject
 {
@@ -75,7 +76,7 @@ private:
 	//スプライトレンダーの座標
 	CVector3 s_up_position = { 0.0f,0.0f,0.0f };
 	CVector3 hp_up_position = { 0.0f,0.0f,0.0f };
-
+	//アイテム個数
 	int s_up = 0;
 	int hp_up = 0;
 

@@ -20,6 +20,7 @@ Game1::Game1()
 	}
 
 	m_instance = this;
+
 }
 
 
@@ -67,6 +68,7 @@ bool Game1::Start()
 
 	//レベルを構築する。
 	m_level.Init(L"level/kawa_le.tkl", [&](LevelObjectData& objData) {
+		//オブジェクトを検索
 		if (objData.EqualObjectName(L"isi")) {
 
 			BubbleCreator* isi = NewGO<BubbleCreator>(0, "isi");
@@ -76,9 +78,11 @@ bool Game1::Start()
 
 			return true;
 		}
+		//オブジェクトを検索
 		if (objData.EqualObjectName(L"kawa")) {
 			BackGround* kawa = NewGO<BackGround>(0, "kawa");
 			kawa->Setposition(objData.position);
+			
 
 			return true;
 		}
@@ -86,6 +90,8 @@ bool Game1::Start()
 		//レベル配置の通りに座標を配置する
 		return false;
 		});
+
+	//////////////////////////////////////////////////////////////////////////////////
 
 	//ライトを設置。
 	m_dirLig = NewGO<prefab::CDirectionLight>(0);
@@ -99,12 +105,13 @@ bool Game1::Start()
 
 	shadow::DirectionShadowMap().SetLightDirection(dir);
 	
+	/////////////////////////////////////////////////////////////////////////////
 	return true;
 }
 
 void Game1::Update()
 {
-	
+
 	for (int i = 0; i > s_up; i++)
 	{
 

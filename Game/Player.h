@@ -13,6 +13,8 @@ public:
 	bool Start();
 	//void AnimationControl();
 
+	void Player_Move();
+
 	const CVector3& GetPosition() const {
 		return m_position;
 	}
@@ -45,7 +47,6 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity;
 
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
-	CCharacterController m_charaCon;
 
 	//クラスのロード
 	Bubble* awa = nullptr;
