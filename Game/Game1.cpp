@@ -37,13 +37,7 @@ Game1::~Game1()
 
 bool Game1::Start()
 {
-	/////////////////////////////////////////////////////////
-
-	//確認のawa
-	m_skin = NewGO<prefab::CSkinModelRender>(0);
-	m_skin->Init(L"modelData/awa.cmo");
-	m_skin->SetPosition(pos);
-	////////////////////////////////////////
+	
 
 	//HPバー枠のスプライトを初期化。
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);

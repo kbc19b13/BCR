@@ -9,13 +9,12 @@ Player* Player::m_instance = nullptr;
 
 Player::Player()
 {
+
 	//インスタンスの制限
 	if (m_instance != nullptr)
 	{
 		std::abort();
 	}
-
-	
 
 	m_instance = this;
 }
@@ -52,8 +51,6 @@ void Player::Update()
 
 	//AnimationControl();
 
-
-
 	m_timer++;
 
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 20) {
@@ -70,8 +67,6 @@ void Player::Update()
 		
 	}
 	
-	
-
 }
 
 void Player::Player_Move()
@@ -93,11 +88,12 @@ void Player::Player_Move()
 	cameraRight.Normalize();
 
 	//m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
-	m_moveSpeed += cameraForward * lStick_y * 1.0f;	//奥方向への移動速度を加算。
+	//m_moveSpeed += cameraForward * lStick_y * 1.0f;	//奥方向への移動速度を加算。
 	m_moveSpeed += cameraRight * lStick_x * 5.0f;		//右方向への移動速度を加算。
-
+	m_moveSpeed.z = -0.5f;
 	m_position += m_moveSpeed;
 	m_skinModelRender->SetPosition(m_position);
+
 }
 
 /*

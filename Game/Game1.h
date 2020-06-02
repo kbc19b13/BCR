@@ -34,15 +34,6 @@ public:
 		return hp_up;
 	}
 
-	////////////////////////////////////////////////
-	//awaの確認用変数_後で消去
-	prefab::CSkinModelRender* m_skin = nullptr;
-	CVector3 pos = CVector3::Zero;
-	///////////////////////////////////////////////
-
-
-
-
 	/////////Singletonパターン///////////////
 		//Game1を一体に限定
 	static Game1* P_GetInstance()
