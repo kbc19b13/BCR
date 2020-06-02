@@ -1,17 +1,15 @@
 #include "stdafx.h"
 #include "BubbleCluster.h"
 #include "Player.h"
+#include "Bullet.h"
 
 void BubbleCluster::OnDestroy()
 {
 	float add = 0.0f;
 	for (auto bubble : m_bubblse) {
-		add += 0.9f;
+		add += 0.4f;
 		//–A‚É€–SƒŠƒNƒGƒXƒg‚ğ‘—‚é
-		Player* m_player = Player::P_GetInstance();
-		Diff = m_player->GetPosition() - bubble->GetPosition();
-		bubble->RequestDead( Diff.Length() * 0.5f + add);
-
+		bubble->RequestDead(bubble->GetTimer() + add);
 	}
 }
 

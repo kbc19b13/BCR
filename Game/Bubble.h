@@ -3,6 +3,7 @@
 //前方宣言
 class BubbleCreator;
 class BubbleCluster;
+class Bullet;
 
 class Bubble : public IGameObject
 {
@@ -26,7 +27,7 @@ public:
 		bubble_position = a_pos;
 	}
 	//死亡リクエスト変換
-	void RequestDead(int timer) {
+	void RequestDead(float timer) {
 		//状態を死亡リクエストに変更。
 		m_state = State_RequestDead;
 		//死ぬまでの時間を設定。
@@ -62,6 +63,10 @@ public:
 		return clean;
 	}
 	
+	bool GetTimer() {
+		return m_deadTimer;
+	}
+	
 	//////////メンバ変数//////////
 protected:
 	//生or死・ステート構造体
@@ -70,18 +75,19 @@ protected:
 		State_RequestDead,
 	};
 	State m_state = State_Normal; //ステート
-	float m_deadTimer = 0.0f;	//死亡タイマー
+	
 	//スキンモデルレンダー
 	prefab::CSkinModelRender* bubble_skinmodelrender = nullptr;
 	//座標
 	CVector3 bubble_position = CVector3::Zero;
 	//移動速度
 	CVector3 bubble_movespeed = { 0.0f, 0.0f, 0.2f };
-	
 	//移動速度を足し算？
 	CVector3 m_moveSpeedAdd = CVector3::Zero;
 	//死亡時のサイズ
 	CVector3 Deathscale = CVector3::One;
+	//死亡タイマー
+	float m_deadTimer = 3.0f;	
 
 	CShaderResourceView m_specMap;	//すぺきゅらマップ
 
@@ -94,6 +100,7 @@ protected:
 	//クラスのロード
 	Player* m_player = nullptr;
 	BubbleCreator* isi = nullptr;
+	Bullet* tama = nullptr;
 
 	//親のポインタを設定
 	BubbleCluster* m_bubbleCluster = nullptr;	//バブルクラスター。

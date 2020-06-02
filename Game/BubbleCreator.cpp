@@ -39,8 +39,8 @@ void BubbleCreator::Update()
 		timer++;
 		if (timer >= 100)
 		{
-			state = rand() % 5;
-			if (state == 0 || state == 1)
+			state = rand() % 7;
+			if (state == 0 || state == 1 || state == 5)
 			{
 				BubbleChange* awa2 = NewGO<BubbleChange>(0, "awa");
 				awa2->SetPosition(bc_position);
@@ -50,7 +50,7 @@ void BubbleCreator::Update()
 
 				timer = 0;
 			}
-			if (state == 2 || state == 3)
+			if (state == 2 || state == 4 || state == 6)
 			{
 
 				Bubble* awa = NewGO<Bubble>(0, "awa");
@@ -58,7 +58,7 @@ void BubbleCreator::Update()
 				
 				timer = 0;
 			}
-			if (state == 4)
+			if (state == 3)
 			{
 
 				BubbleBeautiful* awa3 = NewGO<BubbleBeautiful>(0, "awa");

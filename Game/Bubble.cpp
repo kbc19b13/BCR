@@ -72,20 +72,50 @@ void Bubble::UpdateCommon()
 		oyako();
 		//PlayerとBubbleの当たり判定
 		awa_Delete();
+
+		QueryGOs<Bullet>("tama", [&](Bullet* tama)
+		{
+
+			//泡と弾の２点間の距離を計算する。
+			CVector3 diff = bubble_position - tama->GetPosition();
+
+			//きれいな泡なら
+			//if (awa->GetClean() == true) 
+			//{
+			//	//アイテムの処理
+			//	int item = rand() % 2;
+			//	if ( item == 0 ){
+			//		game1->Gets_up() + 1;
+			//	}
+			//	if (item == 0) {
+			//		game1->Gethp_up() + 1;
+			//	}
+			//}
+
+			//距離が50.0f以下になったら消す
+			if (diff.Length() < 10.0f)
+			{
+				//弾数の減少
+				DeleteGO(m_bubbleCluster);
+
+				//クエリ終了。
+				return false;
+			}
+			return true;
+		});
+
 		bubble_skinmodelrender->SetPosition(bubble_position);
 		break;
 
 		//死亡リクエストが来ているときの処理
 	case State_RequestDead:
-
-		m_deadTimer -= 0.5f;
+		
+		m_deadTimer -= 0.05f;
 		Deathscale += Deathscale * 0.005;
 		if (Deathscale.x <  1.35f && Deathscale.y < 1.35f && Deathscale.z < 1.35f ) {
 			//スケールを大きくする
 			bubble_skinmodelrender->SetScale(Deathscale);
 		}
-		
-		
 		
 		if (m_deadTimer < 0.0f ) {
 			//タイマーが0以下になったので死亡。
@@ -150,4 +180,5 @@ void Bubble::awa_Delete()
 		DeleteGO(m_bubbleCluster);
 	}
 }
+
 

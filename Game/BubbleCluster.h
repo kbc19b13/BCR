@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Bubble.h"
+class Bullet;
 
 //泡の集合体クラス。
 class BubbleCluster : public IGameObject
@@ -42,8 +43,8 @@ private:
 
 	CVector3 Diff = CVector3::Zero;
 
-	float DethTime = 0.0f;
-
 	float a = 0.1f;
+
+	Bullet* tama = nullptr;
 };
 

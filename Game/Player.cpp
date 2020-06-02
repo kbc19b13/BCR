@@ -59,7 +59,7 @@ void Player::Update()
 	if (Pad(0).IsPress(enButtonA)&& m_timer >= 20) {
 	
 
-		Bullet* bullet = NewGO<Bullet>(0);
+		Bullet* bullet = NewGO<Bullet>(0,"tama" );
 		//弾丸の座標にプレイヤーの座標を代入する。
 		bullet->SetPosition(m_position);
 		//Z軸方向に5の速度を設定する。
