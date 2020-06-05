@@ -7,6 +7,7 @@
 class BubbleCreator;
 class Camera;
 class BackGround;
+class Hartsprit;
 
 class Game1 : public IGameObject
 {
@@ -19,13 +20,13 @@ public:
 	void Update();
 	bool Start();
 
-	const CVector3& GetScale() const {
+	/*const CVector3& GetScale() const {
 
 		return scale;
 	}
 	void SetScale(const CVector3& a_pos) {
 		scale = a_pos;
-	}
+	}*/
 
 	int Gets_up() {
 		return s_up;
@@ -49,16 +50,7 @@ private:
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
 	//レベル
 	CLevel m_level;
-	//スプライトレンダー
-	prefab::CSpriteRender* m_spriteRender;//hpバー
-	prefab::CSpriteRender* h_spriteRender;//hp
-	//スプライトレンダーの座標
-	CVector3 m_position = { -460,320,0 };
-	CVector3 h_position = { -460,320,0 };
-
-	CVector3 scale = { s, 1.0f, 1.0f };
-
-	float s = 15.0f;
+	
 
 	//アイテムの個数表示
 	//スプライトレンダー
@@ -77,5 +69,6 @@ private:
 	Player* m_player = nullptr;
 	Camera* m_camera = nullptr;
 	BubbleCreator* isi = nullptr;
+	Hartsprit* hsp = nullptr;
 	prefab::CDirectionLight* m_dirLig = nullptr;
 };

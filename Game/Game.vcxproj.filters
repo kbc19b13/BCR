@@ -28,6 +28,7 @@
     <ClCompile Include="BubbleCluster.cpp" />
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BubbleBeautiful.cpp" />
+    <ClCompile Include="HartSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
@@ -63,6 +64,7 @@
     <ClInclude Include="BubbleCluster.h" />
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BubbleBeautiful.h" />
+    <ClInclude Include="HartSprite.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />

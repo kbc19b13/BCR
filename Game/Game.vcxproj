@@ -1772,6 +1772,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Game1.cpp" />
     <ClCompile Include="Game2.cpp" />
+    <ClCompile Include="HartSprite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneSelect.cpp" />
@@ -1817,6 +1818,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Game1.h" />
     <ClInclude Include="Game2.h" />
+    <ClInclude Include="HartSprite.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
     <ClInclude Include="SceneSelect.h" />

@@ -7,6 +7,7 @@
 #include "Player.h"
 #include "Camera.h"
 #include "BackGround.h"
+#include "Hartsprite.h"
 
 Game1* Game1::m_instance = nullptr;
 
@@ -29,22 +30,31 @@ Game1::~Game1()
 	DeleteGO(m_skinModelRender);
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
-	DeleteGO(m_spriteRender);
-	DeleteGO(h_spriteRender);
+
+	
+	
+	
+
+	//DeleteGO(h_spriteRender);
 	DeleteGOs("バブルクラスター");
 	m_instance = nullptr;
 }
 
 bool Game1::Start()
 {
+
+	Hartsprit* hsp = NewGO<Hartsprit>(0, "hsp");
 	
+
+/*
+	//体力バー型//
 
 	//HPバー枠のスプライトを初期化。
 	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
 	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
 	//HPバーのスプライトを初期化
 	h_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	
+*/
 
 	
 	
@@ -132,10 +142,10 @@ void Game1::Update()
 		DeleteGO(this);
 	}
 
-	h_spriteRender->Init(L"sprite/hp.dds", s, 30);
+	//h_spriteRender->Init(L"sprite/hp.dds", 30, 30);
 
-	m_spriteRender->SetPosition(m_position);
-	h_spriteRender->SetPosition(h_position);
-	h_spriteRender->SetScale(scale);
+
+	//h_spriteRender->SetPosition(h_position);
+	
 
 }

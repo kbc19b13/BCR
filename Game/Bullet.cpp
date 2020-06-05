@@ -28,12 +28,17 @@ bool Bullet::Start()
 
 void Bullet::Update()
 {
+	m_moveSpeed -= m_moveSpeed * 0.02f;
+
 	//弾丸を移動させる。
 	m_position += m_moveSpeed;
 	
 	//タイマーを加算する。
-	//m_timer++;
-	if (m_timer >= 50) {
+	m_timer++;
+	if (m_timer >= 50 || 
+		m_moveSpeed.x < 0.0f && m_moveSpeed.y < 0.0f && m_moveSpeed.z < 0.0f ||
+		m_position.x > 95.0f ||
+		m_position.x < -95.0f) {
 		//タイマーが50になったらインスタンスを削除する。
 		DeleteGO(this);
 	}

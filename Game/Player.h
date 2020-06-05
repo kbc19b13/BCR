@@ -15,6 +15,8 @@ public:
 
 	void Player_Move();
 
+	void Bullet_Direction();
+
 	const CVector3& GetPosition() const {
 		return m_position;
 	}
@@ -44,6 +46,7 @@ private:
 
 	CVector3 m_position = CVector3::Zero;
 	CVector3 m_moveSpeed = CVector3::Zero;
+	CVector3 d_moveSpeed = CVector3::Zero;
 	CQuaternion m_rotation = CQuaternion::Identity;
 
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
