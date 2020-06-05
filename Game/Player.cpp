@@ -55,16 +55,12 @@ void Player::Update()
 
 	
 
-<<<<<<< HEAD
-	if (Pad(0).IsPress(enButtonA) && m_timer >= 50){
+	if (Pad(0).IsPress(enButtonA) && m_timer >= 30){
 
 		Bullet* bullet = NewGO<Bullet>(0);
-=======
-		Bullet* bullet = NewGO<Bullet>(0,"tama" );
->>>>>>> 85e3d0a1dadc435359920621df75914b61ad8429
 		//弾丸の座標にプレイヤーの座標を代入する。
 		bullet->SetPosition(m_position);
-		//Z軸方向に5の速度を設定する。
+		//Z軸方向に3の速度を設定する。
 		bullet->SetMoveSpeed({ 0.0f, 0.0f, -3.0f });
 
 		amo--;
@@ -79,10 +75,6 @@ void Player::Update()
 		amo++;
 	}
 	
-<<<<<<< HEAD
-	
-	
-=======
 }
 
 void Player::Player_Move()
@@ -90,7 +82,6 @@ void Player::Player_Move()
 	//XZ成分の移動速度をクリア。
 	m_moveSpeed.x = 0.0f;
 	m_moveSpeed.z = 0.0f;
->>>>>>> 85e3d0a1dadc435359920621df75914b61ad8429
 
 	//左スティックの入力量を受け取る。
 	float lStick_x = Pad(0).GetLStickXF();
@@ -111,10 +102,6 @@ void Player::Player_Move()
 	m_position += m_moveSpeed;
 	m_skinModelRender->SetPosition(m_position);
 
-<<<<<<< HEAD
-	
-=======
->>>>>>> 85e3d0a1dadc435359920621df75914b61ad8429
 }
 
 /*
