@@ -31,6 +31,7 @@ private:
 	CVector3 m_position = CVector3::Zero;	//座標。
 	CVector3 m_moveSpeed = CVector3::Zero;	//移動速度。
 	int m_timer = 0;						//タイマー。
+	int amo = 0;							//弾薬
 
 	CVector3 scale = CVector3::One;
 

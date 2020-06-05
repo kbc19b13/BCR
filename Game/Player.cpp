@@ -82,24 +82,35 @@ void Player::Update()
 
 	m_timer++;
 
-	if (Pad(0).IsPress(enButtonA)&& m_timer >= 20) {
 	
+
+	if (Pad(0).IsPress(enButtonA) && m_timer >= 50){
 
 		Bullet* bullet = NewGO<Bullet>(0);
 		//弾丸の座標にプレイヤーの座標を代入する。
 		bullet->SetPosition(m_position);
 		//Z軸方向に5の速度を設定する。
-		bullet->SetMoveSpeed({ 0.0f, 0.0f, -5.0f });
+		bullet->SetMoveSpeed({ 0.0f, 0.0f, -3.0f });
 
+		amo--;
 		m_timer = 0;
 
-		
 	}
+
+	if (Pad(0).IsPress(enButtonY) && amo <= 5) {
+		//リロードのアニメーションをながして
+		//アニメーションの再生中は弾を打てないようにする
+		//弾薬の補充
+		amo++;
+	}
+	
 	
 	
 
 	m_position = m_charaCon.Execute(m_moveSpeed);
 	m_skinModelRender->SetPosition(m_position);
+
+	
 }
 
 	/*

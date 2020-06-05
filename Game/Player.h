@@ -23,6 +23,7 @@ public:
 	}
 
 	int m_timer = 0;
+	int amo = 0;
 
 	/////////Singletonƒpƒ^[ƒ“///////////////
 		//Player‚ğˆê‘Ì‚ÉŒÀ’è
