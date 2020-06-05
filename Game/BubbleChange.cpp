@@ -15,6 +15,7 @@ BubbleChange::~BubbleChange()
 
 bool BubbleChange::Start()
 {
+	/////////////////////////////////////////////////////////////////////
 
 	bubble_skinmodelrender = NewGO<prefab::CSkinModelRender>(0);
 	bubble_skinmodelrender->Init(L"modelData/awa.cmo");
@@ -25,6 +26,8 @@ bool BubbleChange::Start()
 	bubble_skinmodelrender->FindMaterial([&](CModelEffect* mat) {
 		mat->SetSpecularMap(m_specMap.GetBody());
 	});
+
+	/////////////////////////////////////////////////////////////////////
 
 	direction = rand() % 3;
 	if (direction == 0) {

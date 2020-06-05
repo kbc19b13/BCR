@@ -10,6 +10,7 @@
     <ImageContentTask Include="Assets\modelData\awa_spec.jpg" />
     <ImageContentTask Include="Assets\sprite\HPhart.png" />
     <ImageContentTask Include="Assets\sprite\HPhartBar.png" />
+    <ImageContentTask Include="Assets\modelData\b_awa_spec.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -34,7 +35,6 @@
     <MeshContentTask Include="Assets\modelData\unityChan.fbx" />
     <MeshContentTask Include="Assets\modelData\isi.FBX" />
     <MeshContentTask Include="Assets\modelData\Bullet.FBX" />
-    <MeshContentTask Include="Assets\modelData\Player.FBX" />
     <MeshContentTask Include="Assets\modelData\awa_b.FBX" />
     <MeshContentTask Include="Assets\modelData\KPlayer.fbx" />
   </ItemGroup>
@@ -70,8 +70,6 @@
   <ItemGroup>
     <None Include="Assets\level\kawa_le.tkl" />
     <None Include="Assets\level\level_00.tkl" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="Assets\modelData\b_awa_spec.png" />
+    <None Include="Assets\effect\kawa.efk" />
   </ItemGroup>
 </Project>

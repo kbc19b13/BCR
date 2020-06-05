@@ -21,6 +21,10 @@ public:
 		m_position = p_pos;
 	}
 
+	const CVector3& GetMoveSpeed() const {
+		return m_moveSpeed;
+	}
+
 	void SetMoveSpeed(const CVector3& p_mspeed)
 	{
 		m_moveSpeed = p_mspeed;

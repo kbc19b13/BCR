@@ -1,32 +1,37 @@
 #pragma once
 
 #include "Bubble.h"
+class Bullet;
 
 //泡の集合体クラス。
 class BubbleCluster : public IGameObject
 {
 public:
+	void Update();
+
+	//クラスターのDelete処理
 	void OnDestroy() override;
 
+	//泡の生成時に呼ばれる(自分)
 	void AddBubble(Bubble* bubble); 
+
 	//クラスターを合成
 	void CombineCluster( BubbleCluster* cluster )
 	{
-		//TK_LOG("bubble size %d", cluster->m_bubblse.size());
+		//子どもリストの泡を登録
 		for (auto bubble : cluster->m_bubblse) {
 			AddBubble(bubble);
 		}
 		//合成元をクリア。
 		cluster->m_bubblse.clear();
 	}
+
 	//クラスターの移動速度を取得。
 	CVector3 GetMoveSpeed() 
 	{
 		return bcluster_moveSpeed;
 	}
-	void Update();
-	//クラスターを削除。
-	void DeleteCluster(Bubble* bubble);
+
 private:
 	void UpdatePosition();
 	void UpdateRadius();
@@ -38,8 +43,8 @@ private:
 
 	CVector3 Diff = CVector3::Zero;
 
-	float DethTime = 0.0f;
-
 	float a = 0.1f;
+
+	Bullet* tama = nullptr;
 };
 

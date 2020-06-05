@@ -1,38 +1,26 @@
 #include "stdafx.h"
 #include "BubbleCluster.h"
 #include "Player.h"
+#include "Bullet.h"
 
-
-//OnDestroyを呼ぶことによるコンパイルエラー？
 void BubbleCluster::OnDestroy()
 {
-	//auto it = m_bubblse;
+	float add = 0.0f;
 	for (auto bubble : m_bubblse) {
+		add += 0.4f;
 		//泡に死亡リクエストを送る
-		Player* m_player = Player::P_GetInstance();
-		Diff = m_player->GetPosition() - bubble->GetPosition();
-		bubble->RequestDead( Diff.Length() * 3.0f );
-
+		bubble->RequestDead(bubble->GetTimer() + add);
 	}
 }
 
 /*
+//関数内で完結すると1_Updateの中で処理が終わり連鎖しない！(描画が一回だけ)
+
+//クラスターを削除。
+	void DeleteCluster(Bubble* bubble);
+
 void BubbleCluster::DeleteCluster(Bubble* bubble)
 {
-
-	
-	//クラスターの理解を深める
-	//Delete処理の実装
-	//｛
-	//（半径を使用してif文を作成）
-	//クラスター全体消去から個体消去に変換
-	//子供のリストから一個ずつ消していく
-	//最後に親を消す
-	//クラスターと一緒に泡も消える
-	//｝
-	//↑で連鎖させる？
-
-	
 
 	Player* m_player = Player::P_GetInstance();
 	Diff = m_player->GetPosition() - bubble->GetPosition();
@@ -44,8 +32,6 @@ void BubbleCluster::DeleteCluster(Bubble* bubble)
 		//DethTime -= GameTime().GetFrameDeltaTime();
 		DethTime -= a;
 	}
-
-
 
 }
 */
@@ -69,9 +55,12 @@ void BubbleCluster::AddBubble(Bubble* bubble)
 		bcluster_moveSpeed *= std::powf(originalRate, 0.01f);
 		bcluster_moveSpeed.z = max(0.3f, bcluster_moveSpeed.z);	//画面外に落ちてくれなくなると困るので、zの最小値は0.1にする。
 	}
+	//親の登録
 	bubble->BindBubbleCluster(this);
 
 }
+
+//クラスターの座標を更新。
 void BubbleCluster::UpdatePosition()
 {
 	//クラスターの平均座標を計算。
@@ -81,22 +70,30 @@ void BubbleCluster::UpdatePosition()
 	}
 	bcluster_position /= m_bubblse.size();
 }
+
+//クラスターの半径を更新する。
 void BubbleCluster::UpdateRadius()
 {
 	//クラスターの半径を計算する。
 	m_radius = 0.0f;
-	for (auto bubble : m_bubblse) {
-		auto pos = bubble->GetPosition();
-		//クラスターの中心座標から、バブルまでの距離を計算。
-		auto dist = pos - bcluster_position;
-		float length = dist.Length();
-		//半径を更新。
-		if (m_radius < length) {
-			//こっちのほうが大きいので、更新する。
-			m_radius = length;
+	if (m_bubblse.size() == 1) {
+		m_radius = 1.5f;
+	}
+	else if (m_bubblse.size() > 1) {
+		for (auto bubble : m_bubblse) {
+			auto pos = bubble->GetPosition();
+			//クラスターの中心座標から、バブルまでの距離を計算。
+			auto dist = pos - bcluster_position;
+			float length = dist.Length();
+			//半径を更新。
+			if (m_radius < length) {
+				//こっちのほうが大きいので、更新する。
+				m_radius = length;
+			}
 		}
 	}
 }
+
 void BubbleCluster::Update()
 {
 	//クラスターの座標を更新。
