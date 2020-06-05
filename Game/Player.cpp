@@ -64,9 +64,16 @@ void Player::Update()
 		//弾の方向と速度を設定する。
 		bullet->SetMoveSpeed(d_moveSpeed);
 
+		amo--;
 		m_timer = 0;
 
-		
+	}
+
+	if (Pad(0).IsPress(enButtonY) && amo <= 5) {
+		//リロードのアニメーションをながして
+		//アニメーションの再生中は弾を打てないようにする
+		//弾薬の補充
+		amo++;
 	}
 
 }
