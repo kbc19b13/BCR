@@ -27,7 +27,7 @@ public:
 	}
 
 	//クラスターの移動速度を取得。
-	CVector3 GetMoveSpeed() 
+	CVector3& GetMoveSpeed() 
 	{
 		return bcluster_moveSpeed;
 	}

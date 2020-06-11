@@ -34,7 +34,7 @@ void BubbleCreator::Update()
 
 	//Playerとisiとの長さでawaを発生させる
 	CVector3 p_i_leng = bc_position - m_player->GetPosition();
-	if (p_i_leng.Length() <= 200.0f)//Lengthでベクトルの長さを取得
+	if (p_i_leng.Length() <= 400.0f)//Lengthでベクトルの長さを取得
 	{
 		timer++;
 		if (timer >= 100)

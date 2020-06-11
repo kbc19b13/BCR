@@ -43,8 +43,11 @@ Game1::~Game1()
 bool Game1::Start()
 {
 
-	Hartsprit* hsp = NewGO<Hartsprit>(0, "hsp");
-	
+	/*
+	HartSprit* hsp = NewGO<HartSprit>(0, "hsp");
+
+	hsp->Seta(10);
+	*/
 
 /*
 	//体力バー型//
@@ -90,6 +93,7 @@ bool Game1::Start()
 
 			return true;
 		}
+		
 		//クラスの処理が入らない
 		//レベル配置の通りに座標を配置する
 		return false;

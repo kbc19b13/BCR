@@ -1866,6 +1866,14 @@
   <ItemGroup>
     <ImageContentTask Include="Assets\modelData\b_awa_spec.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\b2_leyer.png" />
+    <ImageContentTask Include="Assets\sprite\bubblecrusher.png" />
+    <ImageContentTask Include="Assets\sprite\mizu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\BubbleStart.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\ImageContentTask.targets" />

@@ -53,7 +53,7 @@ void Player::Update()
 
 	m_timer++;
 
-	Bullet_Direction();
+	
 
 	if (Pad(0).IsPress(enButtonLB2)&& m_timer >= 20) {
 	
@@ -62,7 +62,7 @@ void Player::Update()
 		//弾丸の座標にプレイヤーの座標を代入する。
 		bullet->SetPosition(m_position);
 		//弾の方向と速度を設定する。
-		bullet->SetMoveSpeed(d_moveSpeed);
+		bullet->SetMoveSpeed(Bullet_Direction());
 
 		amo--;
 		m_timer = 0;
@@ -116,7 +116,7 @@ void Player::Player_Move()
 }
 
 //Bulletの打つ方向を取得
-void Player::Bullet_Direction()
+CVector3 Player::Bullet_Direction()
 {
 	//XZ成分の移動速度をクリア。
 	d_moveSpeed.x = 0.0f;
@@ -139,7 +139,9 @@ void Player::Bullet_Direction()
 	d_moveSpeed += cameraRight * RStick_x;		//右方向への移動速度を加算。
 
 	d_moveSpeed.Normalize();
-	d_moveSpeed = d_moveSpeed * 5.0f;
+	d_moveSpeed = d_moveSpeed * 3.0f;
+
+	return d_moveSpeed;
 }
 
 /*

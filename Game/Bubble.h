@@ -4,6 +4,7 @@
 class BubbleCreator;
 class BubbleCluster;
 class Bullet;
+class HartSprit;
 
 class Bubble : public IGameObject
 {
@@ -101,6 +102,7 @@ protected:
 	Player* m_player = nullptr;
 	BubbleCreator* isi = nullptr;
 	Bullet* tama = nullptr;
+	HartSprit* hsp = nullptr;
 
 	//親のポインタを設定
 	BubbleCluster* m_bubbleCluster = nullptr;	//バブルクラスター。

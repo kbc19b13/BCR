@@ -28,14 +28,16 @@ bool Bullet::Start()
 
 void Bullet::Update()
 {
-	m_moveSpeed -= m_moveSpeed * 0.02f;
+	
 
 	//弾丸を移動させる。
 	m_position += m_moveSpeed;
+
+	m_moveSpeed -= m_moveSpeed * 0.005f;
 	
 	//タイマーを加算する。
 	m_timer++;
-	if (m_timer >= 50 || 
+	if (m_timer >= 60 || 
 		m_moveSpeed.x < 0.0f && m_moveSpeed.y < 0.0f && m_moveSpeed.z < 0.0f ||
 		m_position.x > 95.0f ||
 		m_position.x < -95.0f) {
@@ -57,3 +59,4 @@ void Bullet::Update()
 	//スキンモデルレンダーに座標を伝える。
 	m_skinModelRender->SetPosition(m_position);
 }
+

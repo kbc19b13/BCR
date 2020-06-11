@@ -1,11 +1,20 @@
 #pragma once
-class Hartsprit : public IGameObject
+class HartSprit : public IGameObject
 {
 public:
 	bool Start();
 	void Update();
 
+	void Seta(const int atai) {
+		a = atai;
+	}
+
+	const int Geta() const {
+		return a;
+	}
+
 private:
+	int a = 10;
 
 	//スプライトレンダー
 	prefab::CSpriteRender* m_spriteRender[10];//灰色

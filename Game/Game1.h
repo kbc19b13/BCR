@@ -48,6 +48,7 @@ private:
 	//////////メンバ変数//////////
 	//スキンモデルレンダー
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
+	prefab::CSkinModelRender* mo = nullptr;
 	//レベル
 	CLevel m_level;
 	

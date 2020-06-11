@@ -15,7 +15,7 @@ public:
 
 	void Player_Move();
 
-	void Bullet_Direction();
+	CVector3 Bullet_Direction();
 
 	const CVector3& GetPosition() const {
 		return m_position;

@@ -4,12 +4,14 @@
 #include "BubbleCreator.h"
 #include "Bullet.h"
 #include "BubbleCluster.h"
+#include "HartSprite.h"
 
 Bubble::Bubble()
 {
 	isi = FindGO<BubbleCreator>("isi");
 	
 	m_player = Player::P_GetInstance();
+
 }
 
 bool Bubble::Start()
@@ -50,6 +52,8 @@ bool Bubble::Start()
 	float a = (120 + (rand() % 24 + 1)) / 120.0f ;
 	CVector3 scale = { a, a, a };
 	bubble_skinmodelrender->SetScale(scale);
+
+
 
 	return true;
 }
@@ -175,7 +179,9 @@ void Bubble::awa_Delete()
 {
 	CVector3 p_a_kyori = m_player->GetPosition() - bubble_position;
 	if (p_a_kyori.Length() <= 10.0f) {
+
 		//Player‚Ì‘Ì—ÍŒ¸­II
+		
 
 		DeleteGO(m_bubbleCluster);
 	}
