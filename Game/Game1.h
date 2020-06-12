@@ -52,6 +52,9 @@ private:
 	//レベル
 	CLevel m_level;
 	
+	//サウンド
+	prefab::CSoundSource* BGM = nullptr;
+	prefab::CSoundSource* BGM2 = nullptr;
 
 	//アイテムの個数表示
 	//スプライトレンダー

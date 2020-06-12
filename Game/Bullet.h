@@ -38,6 +38,9 @@ private:
 
 	CVector3 scale = CVector3::One;
 
+	//サウンド
+	prefab::CSoundSource* s_effect = nullptr;
+
 	//クラスのロード
 	Game1* game1 = nullptr;
 	Bubble* awa = nullptr;

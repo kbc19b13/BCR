@@ -51,6 +51,8 @@ private:
 	CQuaternion m_rotation = CQuaternion::Identity;
 
 	prefab::CSkinModelRender* m_skinModelRender = nullptr;
+	//サウンド
+	prefab::CSoundSource* s_effect = nullptr;
 
 	//クラスのロード
 	Bubble* awa = nullptr;

@@ -31,8 +31,8 @@ Game1::~Game1()
 	DeleteGO(m_player);
 	DeleteGO(m_camera);
 
-	
-	
+	DeleteGO(BGM);
+	DeleteGO(BGM2);
 	
 
 	//DeleteGO(h_spriteRender);
@@ -114,6 +114,14 @@ bool Game1::Start()
 	shadow::DirectionShadowMap().SetLightDirection(dir);
 	
 	/////////////////////////////////////////////////////////////////////////////
+	
+	BGM = NewGO<prefab::CSoundSource>(0);
+	BGM->Init(L"sound/kawaBGM.wav");
+	BGM->Play(true);
+	BGM2 = NewGO<prefab::CSoundSource>(0);
+	BGM2->Init(L"sound/pop.wav");
+	BGM2->Play(true);
+	
 	return true;
 }
 

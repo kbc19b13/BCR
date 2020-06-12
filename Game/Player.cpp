@@ -64,6 +64,10 @@ void Player::Update()
 		//’e‚Ì•ûŒü‚Æ‘¬“x‚ðÝ’è‚·‚éB
 		bullet->SetMoveSpeed(Bullet_Direction());
 
+		s_effect = NewGO<prefab::CSoundSource>(0);
+		s_effect->Init(L"sound/pati.wav");
+		s_effect->Play(false);
+
 		amo--;
 		m_timer = 0;
 

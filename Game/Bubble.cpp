@@ -99,7 +99,7 @@ void Bubble::UpdateCommon()
 			//距離が50.0f以下になったら消す
 			if (diff.Length() < 10.0f)
 			{
-				//弾数の減少
+				
 				DeleteGO(m_bubbleCluster);
 
 				//クエリ終了。
@@ -126,8 +126,11 @@ void Bubble::UpdateCommon()
 
 			//エフェクト再生
 			prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
-			effect->Play(L"effect/test2.efk");
+			effect->Play(L"effect/aw.efk");
 			effect->SetPosition(bubble_position);
+			//大きく
+			float scale = 2.0f;
+			effect->SetScale({ scale,scale,scale });
 
 			DeleteGO(this);
 		}

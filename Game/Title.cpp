@@ -18,6 +18,13 @@ Title::Title()
 	m_spriteRender4 = NewGO<prefab::CSpriteRender>(0);
 	m_spriteRender4->Init(L"../Assets/sprite/BubbleStart.dds", 600.0f, 400.0f);
 	m_spriteRender4->SetPosition(taiki_position);
+
+	BGM = NewGO<prefab::CSoundSource>(0);
+	BGM->Init(L"sound/kawaBGM.wav");
+	BGM->Play(true);
+	BGM2 = NewGO<prefab::CSoundSource>(0);
+	BGM2->Init(L"sound/pop.wav");
+	
 }
 
 
@@ -27,6 +34,7 @@ Title::~Title()
 	DeleteGO(m_spriteRender2);
 	DeleteGO(m_spriteRender3);
 	DeleteGO(m_spriteRender4);
+	DeleteGO(BGM2);
 }
 
 void Title::Update()
@@ -56,6 +64,7 @@ void Title::Update()
 	{
 		//DeleteGO(m_spriteRender3);
 		
+		DeleteGO(BGM);
 		
 		State = 1;
 	}
@@ -67,6 +76,8 @@ void Title::Update()
 
 	if (State == 1)
 	{
+		BGM2->Play(true);
+
 		if (s_Scale.x >= 1.0f) {
 			size = -0.005f;
 			jump = 0.5f;

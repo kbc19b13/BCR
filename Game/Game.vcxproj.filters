@@ -73,11 +73,19 @@
     <None Include="Assets\level\kawa_le.tkl" />
     <None Include="Assets\level\level_00.tkl" />
     <None Include="Assets\effect\kawa.efk" />
+    <None Include="Assets\effect\aw.efk" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\sprite\b2_leyer.png" />
     <Image Include="Assets\sprite\bubblecrusher.png" />
     <Image Include="Assets\sprite\mizu.png" />
     <Image Include="Assets\sprite\BubbleStart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\新しいフォルダー\kawaBGM.wav" />
+    <Media Include="Assets\sound\kawaBGM.wav" />
+    <Media Include="Assets\sound\pasha.wav" />
+    <Media Include="Assets\sound\pati.wav" />
+    <Media Include="Assets\sound\pop.wav" />
   </ItemGroup>
 </Project>

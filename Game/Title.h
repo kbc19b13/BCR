@@ -36,5 +36,9 @@ public:
 
 	CVector3 m_Scale = CVector3::One;
 	CVector3 s_Scale = CVector3::One;
+
+	//ƒTƒEƒ“ƒh
+	prefab::CSoundSource* BGM = nullptr;
+	prefab::CSoundSource* BGM2 = nullptr;
 };
 

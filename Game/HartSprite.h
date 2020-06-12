@@ -17,8 +17,8 @@ private:
 	int a = 10;
 
 	//スプライトレンダー
-	prefab::CSpriteRender* m_spriteRender[10];//灰色
-	prefab::CSpriteRender* h_spriteRender[10];//赤色
+	prefab::CSpriteRender* m_spriteRender[10] = { nullptr };//灰色
+	prefab::CSpriteRender* h_spriteRender[10] = { nullptr };//赤色
 
 	//スプライトレンダーの座標
 	CVector3 m_position = { -616.0f,335.0f,0.0f };

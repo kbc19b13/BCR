@@ -42,6 +42,9 @@ void Bullet::Update()
 		m_position.x > 95.0f ||
 		m_position.x < -95.0f) {
 		//タイマーが50になったらインスタンスを削除する。
+		/*s_effect = NewGO<prefab::CSoundSource>(0);
+		s_effect->Init(L"sound/pasha.wav");
+		s_effect->Play(false);*/
 		DeleteGO(this);
 	}
 
