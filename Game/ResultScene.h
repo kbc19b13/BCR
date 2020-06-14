@@ -22,6 +22,7 @@ private:
 	prefab::CFontRender* defeat = nullptr;
 	//ÉXÉRÉA
 	prefab::CFontRender* score = nullptr;
+	prefab::CFontRender* select = nullptr;
 	CVector2 score_position = { 400.0f, -240.0f };
 	CVector2 defeat_position = { -500.0f, -250.0f };
 

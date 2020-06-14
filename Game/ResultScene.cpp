@@ -11,6 +11,9 @@ ResultScene::ResultScene()
 	
 	m_player = Player::P_GetInstance();
 
+	select = NewGO<prefab::CFontRender>(0, "select");
+	select->SetText(L"Button SELECT");
+
 	/*gekiha = m_player->GetBubbleExplosion();*/
 	defeat = NewGO<prefab::CFontRender>(0, "defeat");
 	defeat->SetText(L"åÇîjêî");
@@ -41,6 +44,7 @@ ResultScene::~ResultScene()
 	DeleteGO(m_spriteRender);
 	DeleteGO(defeat);
 	DeleteGO(score);
+	DeleteGO(select);
 }
 
 void ResultScene::Update()
