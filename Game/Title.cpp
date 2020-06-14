@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Title.h"
-#include "SceneSelect.h"
+#include "Game1.h"
+#include "ResultScene.h"
 
 Title::Title()
 {
@@ -19,10 +20,11 @@ Title::Title()
 	m_spriteRender4->Init(L"../Assets/sprite/BubbleStart.dds", 600.0f, 400.0f);
 	m_spriteRender4->SetPosition(taiki_position);
 
-	BGM = NewGO<prefab::CSoundSource>(0);
+	BGM = NewGO<prefab::CSoundSource>(0, "BGM");
 	BGM->Init(L"sound/kawaBGM.wav");
 	BGM->Play(true);
-	BGM2 = NewGO<prefab::CSoundSource>(0);
+
+	BGM2 = NewGO<prefab::CSoundSource>(0, "BGM2");
 	BGM2->Init(L"sound/pop.wav");
 	
 }
@@ -34,62 +36,102 @@ Title::~Title()
 	DeleteGO(m_spriteRender2);
 	DeleteGO(m_spriteRender3);
 	DeleteGO(m_spriteRender4);
+	if (BGM != nullptr) {
+		DeleteGO(BGM);
+	}
 	DeleteGO(BGM2);
+
 }
 
 void Title::Update()
 {
-	
-	t++;
-	if (t > 20) {
-		m_moveSpeedAdd.x = Random().GetRandDouble();
-		if (Random().GetRandInt() % 20 != 0) {
-			m_moveSpeedAdd.x *= -1.0f;
+	if (Delete_State == 0) {
+		t++;
+		if (t > 20) {
+			m_moveSpeedAdd.x = Random().GetRandDouble();
+			if (Random().GetRandInt() % 20 != 0) {
+				m_moveSpeedAdd.x *= -1.0f;
+			}
+			m_moveSpeedAdd.z = Random().GetRandDouble();
+
+			m_moveSpeedAdd *= 5.5f;
+
+			t = 0;
 		}
-		m_moveSpeedAdd.z = Random().GetRandDouble();
 
-		m_moveSpeedAdd *= 5.5f;
+		a_position += m_MoveSpeed + m_moveSpeedAdd;
 
-		t = 0;
-	}
+		m_Scale += m_Scale * 0.005;
 
-	a_position += m_MoveSpeed + m_moveSpeedAdd;
+		m_spriteRender3->SetScale(m_Scale);
+		m_spriteRender3->SetPosition(a_position);
 
-	m_Scale += m_Scale * 0.005;
+		if (a_position.x < 0.0f)
+		{
+			DeleteGO(m_spriteRender3);
+			m_spriteRender3 = nullptr;
+			Delete_State = 1;
 
-	m_spriteRender3->SetScale(m_Scale);
-	m_spriteRender3->SetPosition(a_position);
-	
-	if (a_position.x < 0.0f)
-	{
-		//DeleteGO(m_spriteRender3);
-		
-		DeleteGO(BGM);
-		
-		State = 1;
-	}
-
-	if (Pad(0).IsPress(enButtonX)) {
-		NewGO<SceneSelect>(0);
-		DeleteGO(this);
-	}
-
-	if (State == 1)
-	{
-		BGM2->Play(true);
-
-		if (s_Scale.x >= 1.0f) {
-			size = -0.005f;
-			jump = 0.5f;
+			DeleteGO(BGM);
+			BGM = nullptr;
+			State = 1;
 		}
-		if (s_Scale.x <= 0.8f) {
-			size = 0.005f;
-			jump = -0.5f;
+
+		if (Pad(0).IsTrigger(enButtonStart)) {
+			NewGO<Game1>(0);
+			DeleteGO(this);
 		}
-		s_Scale += s_Scale * size;
-		s_position.y += jump;
-		m_spriteRender4->SetScale(s_Scale);
-		m_spriteRender4->SetPosition(s_position);
-		m_spriteRender2->SetPosition(m_position);
+
+		if (State == 1)
+		{
+			BGM2->Play(true);
+
+			if (s_Scale.x >= 1.0f) {
+				size = -0.005f;
+				jump = 0.5f;
+			}
+			if (s_Scale.x <= 0.8f) {
+				size = 0.005f;
+				jump = -0.5f;
+			}
+			s_Scale += s_Scale * size;
+			s_position.y += jump;
+			m_spriteRender4->SetScale(s_Scale);
+			m_spriteRender4->SetPosition(s_position);
+			m_spriteRender2->SetPosition(m_position);
+		}
 	}
+		if (Delete_State == 1)
+		{
+
+
+
+
+			if (Pad(0).IsTrigger(enButtonStart))
+			{
+
+				NewGO<Game1>(0);
+				DeleteGO(this);
+			}
+
+			if (State == 1)
+			{
+				BGM2->Play(true);
+
+				if (s_Scale.x >= 1.0f) {
+					size = -0.005f;
+					jump = 0.5f;
+				}
+				if (s_Scale.x <= 0.8f) {
+					size = 0.005f;
+					jump = -0.5f;
+				}
+				s_Scale += s_Scale * size;
+				s_position.y += jump;
+				m_spriteRender4->SetScale(s_Scale);
+				m_spriteRender4->SetPosition(s_position);
+				m_spriteRender2->SetPosition(m_position);
+			}
+		}
+
 }

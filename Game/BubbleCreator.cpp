@@ -31,40 +31,44 @@ bool BubbleCreator::Start()
 
 void BubbleCreator::Update()
 {
+	if (this == nullptr) { return; }
 
 	//Player‚Æisi‚Æ‚Ì’·‚³‚Åawa‚ð”­¶‚³‚¹‚é
 	CVector3 p_i_leng = bc_position - m_player->GetPosition();
 	if (p_i_leng.Length() <= 400.0f)//Length‚ÅƒxƒNƒgƒ‹‚Ì’·‚³‚ðŽæ“¾
 	{
-		timer++;
-		if (timer >= 100)
+		if (m_player->GetPosition().z > bc_position.z)
 		{
-			state = rand() % 9;
-			if (state == 0 || state == 1 || state == 2 || state == 3 || state == 5 || state == 6)
+			timer++;
+			if (timer >= 100)
 			{
-				BubbleChange* awa2 = NewGO<BubbleChange>(0, "awa");
-				awa2->SetPosition(bc_position);
-				
-				//BubbleBeautiful* awa3 = NewGO<BubbleBeautiful>(0, "awa");
-				//awa3->SetPosition(bc_position);
+				state = rand() % 9;
+				if (state == 0 || state == 1 || state == 2 || state == 3 || state == 5 || state == 6)
+				{
+					BubbleChange* awa2 = NewGO<BubbleChange>(1, "awa");
+					awa2->SetPosition(bc_position);
 
-				timer = 0;
-			}
-			if (state == 7 || state == 8)
-			{
+					//BubbleBeautiful* awa3 = NewGO<BubbleBeautiful>(0, "awa");
+					//awa3->SetPosition(bc_position);
 
-				Bubble* awa = NewGO<Bubble>(0, "awa");
-				awa->SetPosition(bc_position);
-				
-				timer = 0;
-			}
-			if (state == 4)
-			{
+					timer = 0;
+				}
+				if (state == 7 || state == 8)
+				{
 
-				BubbleBeautiful* awa3 = NewGO<BubbleBeautiful>(0, "awa");
-				awa3->SetPosition(bc_position);
+					Bubble* awa = NewGO<Bubble>(1, "awa");
+					awa->SetPosition(bc_position);
 
-				timer = 0;
+					timer = 0;
+				}
+				if (state == 4)
+				{
+
+					BubbleBeautiful* awa3 = NewGO<BubbleBeautiful>(1, "awa");
+					awa3->SetPosition(bc_position);
+
+					timer = 0;
+				}
 			}
 		}
 	}

@@ -1,7 +1,7 @@
 #pragma once
-
 #include "Bubble.h"
 class Bullet;
+class Game1;
 
 //泡の集合体クラス。
 class BubbleCluster : public IGameObject
@@ -46,5 +46,7 @@ private:
 	float a = 0.1f;
 
 	Bullet* tama = nullptr;
+	Game1* game1 = nullptr;
+
 };
 

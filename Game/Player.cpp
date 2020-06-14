@@ -27,8 +27,6 @@ Player::~Player()
 
 bool Player::Start() 
 {
-	//awa = FindGO<Bubble>("awa");
-	//game1 = FindGO<Game1>("game1");
 
 	m_animClips[enAnimationClip_walk].Load(L"animData/Player/Player.tka");
 	m_animClips[enAnimationClip_walk].SetLoopFlag(true);
@@ -53,32 +51,85 @@ void Player::Update()
 
 	m_timer++;
 
-	
 
-	if (Pad(0).IsPress(enButtonLB2)&& m_timer >= 20) {
-	
-
-		Bullet* bullet = NewGO<Bullet>(0,"tama" );
-		//弾丸の座標にプレイヤーの座標を代入する。
-		bullet->SetPosition(m_position);
-		//弾の方向と速度を設定する。
-		bullet->SetMoveSpeed(Bullet_Direction());
-
-		s_effect = NewGO<prefab::CSoundSource>(0);
-		s_effect->Init(L"sound/pati.wav");
-		s_effect->Play(false);
-
-		amo--;
-		m_timer = 0;
-
+	if (tamakazu <= 0)
+	{
+		State = 1;
+	}
+	if (tamakazu > 0)
+	{
+		State = 0;
 	}
 
-	if (Pad(0).IsPress(enButtonY) && amo <= 5) {
-		//リロードのアニメーションをながして
-		//アニメーションの再生中は弾を打てないようにする
-		//弾薬の補充
-		amo++;
+	if (State == 0)
+	{
+		
+		if (Pad(0).IsPress(enButtonLB2) && m_timer >= 10) {
+
+			Bullet* bullet = NewGO<Bullet>(0, "tama");
+			//弾丸の座標にプレイヤーの座標を代入する。
+			bullet->SetPosition(m_position);
+			//弾の方向と速度を設定する。
+			bullet->SetMoveSpeed(Bullet_Direction());
+
+			s_effect = NewGO<prefab::CSoundSource>(0);
+			s_effect->Init(L"sound/pati.wav");
+			s_effect->Play(false);
+
+			tamakazu--;
+			m_timer = 0;
+		}
+			if (tama_State == 0)
+			{
+
+				//弾を拾う
+				if (Pad(0).IsPress(enButtonRB2) && tamakazu <= TamaCapa) {
+					//リロードのアニメーションをながして
+					//アニメーションの再生中は弾を打てないようにする
+					//弾薬の補充
+					tamakazu++;
+					tama_State = 1;
+				}
+
+			}
+			if (tama_State == 1)
+			{
+				t++;
+				if (t > 10)
+				{
+					tama_State = 0;
+					t = 0;
+				}
+
+			}
 	}
+	if (State == 1)
+	{
+		if (tama_State == 0)
+		{
+
+			//弾を拾う
+			if (Pad(0).IsPress(enButtonRB2) && tamakazu <= TamaCapa) {
+				//リロードのアニメーションをながして
+				//アニメーションの再生中は弾を打てないようにする
+				//弾薬の補充
+				tamakazu++;
+				tama_State = 1;
+			}
+
+		}
+		if (tama_State == 1)
+		{
+			t++;
+			if (t > 20)
+			{
+				tama_State = 0;
+			}
+
+		}
+	}
+
+	
 
 }
 
@@ -102,8 +153,8 @@ void Player::Player_Move()
 
 	//m_moveSpeed.y -= 980.0f * GameTime().GetFrameDeltaTime();
 	//m_moveSpeed += cameraForward * lStick_y * 1.0f;	//奥方向への移動速度を加算。
-	m_moveSpeed += cameraRight * lStick_x * 5.0f;		//右方向への移動速度を加算。
-	m_moveSpeed.z = -0.5f;
+	m_moveSpeed += cameraRight * lStick_x * 3.0f;		//右方向への移動速度を加算。
+	m_moveSpeed.z = -0.3f;
 	m_position += m_moveSpeed;
 
 	if (m_position.x > 95.0f)
@@ -167,3 +218,4 @@ void Player::AnimationControl()
 	
 }
 */
+

@@ -56,20 +56,3 @@ bool BubbleBeautiful::Start()
 	return true;
 }
 
-void BubbleBeautiful::Update()
-{
-
-	/*
-	きれいな泡をPlayerがわるとアイテムを落とす→Bulletの当たり判定
-	{
-	・スピードUP？
-	・体力回復？
-	・
-	↑のアイテムをPlayerに追加
-	2D画像(アイテム)の増加
-	*/
-	
-
-	//共通処理
-	UpdateCommon();
-}

@@ -18,7 +18,7 @@ public:
 
 	//////////メンバ変数//////////
 private:
-	Player* m_player;	//プレイヤー。
+	Player* m_player = nullptr;	//プレイヤー。
 	//CVector3 C_position = { 0.0f, 200.0f, 300.0f };
 	CVector3 m_toCameraPos;
 };

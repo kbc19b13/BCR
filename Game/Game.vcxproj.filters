@@ -11,6 +11,12 @@
     <ImageContentTask Include="Assets\sprite\HPhart.png" />
     <ImageContentTask Include="Assets\sprite\HPhartBar.png" />
     <ImageContentTask Include="Assets\modelData\b_awa_spec.png" />
+    <ImageContentTask Include="Assets\sprite\b2_leyer.png" />
+    <ImageContentTask Include="Assets\sprite\bubblecrusher.png" />
+    <ImageContentTask Include="Assets\sprite\mizu.png" />
+    <ImageContentTask Include="Assets\sprite\BubbleStart.png" />
+    <ImageContentTask Include="Assets\sprite\sibuki.png" />
+    <ImageContentTask Include="Assets\sprite\mh3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
@@ -18,7 +24,6 @@
     <ClCompile Include="Game2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="SceneSelect.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Title.cpp" />
     <ClCompile Include="BubbleCreator.cpp" />
@@ -29,6 +34,7 @@
     <ClCompile Include="BackGround.cpp" />
     <ClCompile Include="BubbleBeautiful.cpp" />
     <ClCompile Include="HartSprite.cpp" />
+    <ClCompile Include="ResultScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <MeshContentTask Include="Assets\modelData\awa.FBX" />
@@ -45,7 +51,6 @@
     <ClInclude Include="Game2.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
-    <ClInclude Include="SceneSelect.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
     <ClInclude Include="Assets\shader\common.h" />
@@ -65,6 +70,7 @@
     <ClInclude Include="BackGround.h" />
     <ClInclude Include="BubbleBeautiful.h" />
     <ClInclude Include="HartSprite.h" />
+    <ClInclude Include="ResultScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Game.rc" />
@@ -76,16 +82,11 @@
     <None Include="Assets\effect\aw.efk" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Assets\sprite\b2_leyer.png" />
-    <Image Include="Assets\sprite\bubblecrusher.png" />
-    <Image Include="Assets\sprite\mizu.png" />
-    <Image Include="Assets\sprite\BubbleStart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Media Include="..\..\新しいフォルダー\kawaBGM.wav" />
     <Media Include="Assets\sound\kawaBGM.wav" />
     <Media Include="Assets\sound\pasha.wav" />
     <Media Include="Assets\sound\pati.wav" />
     <Media Include="Assets\sound\pop.wav" />
+    <Media Include="Assets\sound\buku.wav" />
   </ItemGroup>
 </Project>

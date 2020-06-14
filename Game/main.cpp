@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "Game1.h"
 #include "Title.h"
-
+#include "ResultScene.h"
 
 
 namespace {
@@ -105,7 +105,7 @@ namespace {
 		initParam.graphicsConfing.bloomConfig.isEnable = true;
 		//tonemap
 		initParam.graphicsConfing.tonemapConfig.isEnable = true;
-		initParam.graphicsConfing.tonemapConfig.luminance = 0.56f;
+		initParam.graphicsConfing.tonemapConfig.luminance = 0.4f;
 		//SSR
 		initParam.graphicsConfing.ssrConfig.isEnable = true;
 		//ディザ
@@ -141,6 +141,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLi
 		
 		//タイトルを表示
 		NewGO<Title>(0, nullptr);
+		//NewGO<ResultScene>(0, nullptr);
 		
 		//ゲームループを実行。
 		Engine().RunGameLoop();

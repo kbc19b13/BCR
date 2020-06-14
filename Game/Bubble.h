@@ -5,6 +5,7 @@ class BubbleCreator;
 class BubbleCluster;
 class Bullet;
 class HartSprit;
+class Game1;
 
 class Bubble : public IGameObject
 {
@@ -67,6 +68,8 @@ public:
 	bool GetTimer() {
 		return m_deadTimer;
 	}
+
+	
 	
 	//////////メンバ変数//////////
 protected:
@@ -76,6 +79,15 @@ protected:
 		State_RequestDead,
 	};
 	State m_state = State_Normal; //ステート
+	
+	/*enum DeadState {
+		State_Plater,
+		State_Bullet,
+		State_out
+	};
+	DeadState ds_state = State_out;*/
+
+	int DeadState = 0;
 	
 	//スキンモデルレンダー
 	prefab::CSkinModelRender* bubble_skinmodelrender = nullptr;
@@ -90,6 +102,8 @@ protected:
 	//死亡タイマー
 	float m_deadTimer = 3.0f;	
 
+	
+
 	CShaderResourceView m_specMap;	//すぺきゅらマップ
 
 	//方向
@@ -97,12 +111,13 @@ protected:
 	//きれいな泡との区別
 	bool clean = false;
 
-
+	
 	//クラスのロード
 	Player* m_player = nullptr;
 	BubbleCreator* isi = nullptr;
 	Bullet* tama = nullptr;
 	HartSprit* hsp = nullptr;
+	Game1* game1 = nullptr;
 
 	//親のポインタを設定
 	BubbleCluster* m_bubbleCluster = nullptr;	//バブルクラスター。

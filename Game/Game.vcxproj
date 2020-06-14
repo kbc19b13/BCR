@@ -1775,7 +1775,7 @@
     <ClCompile Include="HartSprite.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="SceneSelect.cpp" />
+    <ClCompile Include="ResultScene.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug_Middle|Win32'">Create</PrecompiledHeader>
@@ -1821,7 +1821,7 @@
     <ClInclude Include="HartSprite.h" />
     <ClInclude Include="Player.h" />
     <CLInclude Include="resource.h" />
-    <ClInclude Include="SceneSelect.h" />
+    <ClInclude Include="ResultScene.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Title.h" />
     <ResourceCompile Include="Game.rc" />
@@ -1877,10 +1877,17 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="..\..\新しいフォルダー\kawaBGM.wav" />
+    <Media Include="Assets\sound\buku.wav" />
     <Media Include="Assets\sound\kawaBGM.wav" />
     <Media Include="Assets\sound\pasha.wav" />
     <Media Include="Assets\sound\pati.wav" />
     <Media Include="Assets\sound\pop.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\sibuki.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageContentTask Include="Assets\sprite\mh3.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

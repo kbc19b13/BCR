@@ -48,16 +48,7 @@ void Bullet::Update()
 		DeleteGO(this);
 	}
 
-	//弾薬
-	if (amo >= 0) {
-		//弾薬が0になったら、
-		//リロードのアニメーションをながして
-		//アニメーションの再生中は弾を打てないようにする
-		//弾薬を5追加する。
-
-		amo += 5;
-
-	}
+	
 
 	//スキンモデルレンダーに座標を伝える。
 	m_skinModelRender->SetPosition(m_position);

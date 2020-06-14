@@ -2,6 +2,7 @@
 #include "BubbleCluster.h"
 #include "Player.h"
 #include "Bullet.h"
+#include "Game1.h"
 
 void BubbleCluster::OnDestroy()
 {

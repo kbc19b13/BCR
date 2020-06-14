@@ -19,6 +19,7 @@ public:
 	float awaMove = 7.0f;
 	float size = 0.0f;
 	float jump = 0.0f;
+	int Delete_State = 0;
 
 	//スプライトレンダ－
 	prefab::CSpriteRender* m_spriteRender = nullptr;

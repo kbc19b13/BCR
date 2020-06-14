@@ -5,13 +5,16 @@
 #include "Bullet.h"
 #include "BubbleCluster.h"
 #include "HartSprite.h"
+#include "Game1.h"
 
 Bubble::Bubble()
 {
 	isi = FindGO<BubbleCreator>("isi");
 	
+	
 	m_player = Player::P_GetInstance();
 
+	
 }
 
 bool Bubble::Start()
@@ -53,8 +56,7 @@ bool Bubble::Start()
 	CVector3 scale = { a, a, a };
 	bubble_skinmodelrender->SetScale(scale);
 
-
-
+	
 	return true;
 }
 
@@ -83,23 +85,27 @@ void Bubble::UpdateCommon()
 			//泡と弾の２点間の距離を計算する。
 			CVector3 diff = bubble_position - tama->GetPosition();
 
-			//きれいな泡なら
-			//if (awa->GetClean() == true) 
-			//{
-			//	//アイテムの処理
-			//	int item = rand() % 2;
-			//	if ( item == 0 ){
-			//		game1->Gets_up() + 1;
-			//	}
-			//	if (item == 0) {
-			//		game1->Gethp_up() + 1;
-			//	}
-			//}
+			
 
 			//距離が50.0f以下になったら消す
 			if (diff.Length() < 10.0f)
 			{
 				
+				
+				DeadState = 2;
+
+
+
+				//きれいな泡なら
+				/*if (clean == true)
+				{
+
+					if (game1->Getitem_State() == 0) {
+						game1->Setitem_State(1);
+					}
+
+				}*/
+
 				DeleteGO(m_bubbleCluster);
 
 				//クエリ終了。
@@ -114,6 +120,8 @@ void Bubble::UpdateCommon()
 		//死亡リクエストが来ているときの処理
 	case State_RequestDead:
 		
+		
+
 		m_deadTimer -= 0.05f;
 		Deathscale += Deathscale * 0.005;
 		if (Deathscale.x <  1.35f && Deathscale.y < 1.35f && Deathscale.z < 1.35f ) {
@@ -123,7 +131,13 @@ void Bubble::UpdateCommon()
 		
 		if (m_deadTimer < 0.0f ) {
 			//タイマーが0以下になったので死亡。
-
+			/*if (clean == true)
+			{
+				
+				if (game1->Getitem_State() == 0) {
+					game1->Setitem_State(2);
+				}
+			}*/
 			//エフェクト再生
 			prefab::CEffect* effect = NewGO<prefab::CEffect>(0);
 			effect->Play(L"effect/aw.efk");
@@ -131,6 +145,15 @@ void Bubble::UpdateCommon()
 			//大きく
 			float scale = 2.0f;
 			effect->SetScale({ scale,scale,scale });
+
+			if (DeadState == 2) {
+				/*m_player->SetBubbleExplosionPlus(m_player->GetBubbleExplosion());*/
+				m_player->BubbleExplosion++;
+			}
+			if (DeadState == 1) {
+				/*m_player->SetBubbleExplosionMinus(m_player->GetBubbleExplosion());*/
+				m_player->BubbleExplosion--;
+			}
 
 			DeleteGO(this);
 		}
@@ -185,9 +208,17 @@ void Bubble::awa_Delete()
 
 		//Playerの体力減少！！
 		
+		DeadState = 1;
 
 		DeleteGO(m_bubbleCluster);
 	}
+	if (m_player->GetPosition().z < bubble_position.z - 50.0f)
+	{
+		DeadState = 0;	
+
+		DeleteGO(m_bubbleCluster);
+	}
+
 }
 
 

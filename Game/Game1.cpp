@@ -2,12 +2,12 @@
 #include "Game1.h"
 #include "tkEngine/light/tkDirectionLight.h"
 #include "Title.h"
-#include "SceneSelect.h"
 #include "BubbleCreator.h"
 #include "Player.h"
 #include "Camera.h"
 #include "BackGround.h"
 #include "Hartsprite.h"
+#include "ResultScene.h"
 
 Game1* Game1::m_instance = nullptr;
 
@@ -27,48 +27,15 @@ Game1::Game1()
 
 Game1::~Game1()
 {
-	DeleteGO(m_skinModelRender);
-	DeleteGO(m_player);
-	DeleteGO(m_camera);
-
-	DeleteGO(BGM);
-	DeleteGO(BGM2);
-	
-
-	//DeleteGO(h_spriteRender);
-	DeleteGOs("バブルクラスター");
 	m_instance = nullptr;
 }
 
 bool Game1::Start()
 {
 
-	/*
-	HartSprit* hsp = NewGO<HartSprit>(0, "hsp");
-
-	hsp->Seta(10);
-	*/
-
-/*
-	//体力バー型//
-
-	//HPバー枠のスプライトを初期化。
-	m_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	m_spriteRender->Init(L"sprite/hp_bar.dds", 300, 50);
-	//HPバーのスプライトを初期化
-	h_spriteRender = NewGO<prefab::CSpriteRender>(0);
-*/
-
-	
-	
-	//アイテムのスプライトを初期化。
-	//hp_up_spriteRender = NewGO<prefab::CSpriteRender>(0);
-	//hp_up_spriteRender->Init(L"sprite/.dds", 300, 50);
-
-
 	//クラスの作成
-	Player* m_player = NewGO<Player>(0, "doll");
-	Camera* m_camera = NewGO<Camera>(0);
+	m_player = NewGO<Player>(0, "doll");
+	m_camera = NewGO<Camera>(0);
 	
 
 	////////////////////////////////////////////////////////
@@ -78,7 +45,7 @@ bool Game1::Start()
 		//オブジェクトを検索
 		if (objData.EqualObjectName(L"isi")) {
 
-			BubbleCreator* isi = NewGO<BubbleCreator>(0, "isi");
+			BubbleCreator* isi = NewGO<BubbleCreator>(2, "isi");
 			isi->Setposition(objData.position);
 
 			
@@ -121,43 +88,124 @@ bool Game1::Start()
 	BGM2 = NewGO<prefab::CSoundSource>(0);
 	BGM2->Init(L"sound/pop.wav");
 	BGM2->Play(true);
+
+	//HartSprit* m_hsp = NewGO<HartSprit>(0, "hsp");
 	
 	return true;
 }
 
+void Game1::OnDestroy()
+{
+	DeleteGO(m_skinModelRender);
+	DeleteGO(m_player);
+	DeleteGO(m_camera);
+
+	DeleteGO(BGM);
+	DeleteGO(BGM2);
+
+	/*DeleteGO(Capa);
+	DeleteGO(Reco);
+	DeleteGO(Prot);*/
+
+	
+	DeleteGO(m_dirLig);
+
+	/*DeleteGO(Recovery);
+	DeleteGO(Protection);
+	DeleteGO(h_spriteRender);
+	DeleteGO("hsp");*/
+	
+	DeleteGOs("バブルクラスター");
+	DeleteGO("kawa");
+	DeleteGOs("isi");
+}
+
 void Game1::Update()
 {
-
-	for (int i = 0; i > s_up; i++)
-	{
-
-		s_up_spriteRender[i] = NewGO<prefab::CSpriteRender>(0);
-		s_up_spriteRender[i]->Init(L"sprite/hp_bar.dds", 300, 50);
-		s_up_position.x += i * 10;
-		s_up_spriteRender[i]->SetPosition(s_up_position);
-
-	}
-
 	/*
-	//アイテム使用
-	//if文で使用の判定＆デクリメントする
-	s_up--;
+	if (item_State == 2) {
+		if (Item_State == 0) {
+			DeleteGO(Capa);
+		}
+		else if (Item_State == 1) {
+			DeleteGO(Reco);
+		}
+		else if (Item_State == 2) {
+			DeleteGO(Prot);
+		}
+		item_State = 0;
+	}
+	if (item_State == 1) {
+		//アイテムの処理
+		int item = rand() % 3;
+		if (item == 0)
+		{
+			CapaUp();
+		}
+		else if (item == 1)
+		{
+			Recovery();
+		}
+		else if (item == 2)
+		{
+			Protection();
+		}
+		
+		item_State = 0;
+	}
 	*/
-
-
-	if (Pad(0).IsPress(enButtonSelect)) {
-		NewGO<SceneSelect>(0);
-		DeleteGO(this);
-	}
-	if (Pad(0).IsPress(enButtonStart)) {
-		NewGO<Title>(0);
+	if (m_player->GetPosition().z < -1000.0f)
+	{
+		NewGO<ResultScene>(0);
 		DeleteGO(this);
 	}
 
-	//h_spriteRender->Init(L"sprite/hp.dds", 30, 30);
-
-
-	//h_spriteRender->SetPosition(h_position);
-	
+	if (Pad(0).IsTrigger(enButtonStart)) {
+		NewGO<ResultScene>(0);
+		DeleteGO(this);
+	}
 
 }
+
+
+
+/*
+void Game1::CapaUp()
+{
+	Capa = NewGO<prefab::CFontRender>(0, "Capa");
+	Capa->SetText(L"弾の容量があがったよ！");
+	Capa->SetColor(color);
+	Capa->SetPosition(Gc_position);
+	Capa->SetScale(scale);
+	int b_capa = m_player->GetCapa();
+
+	m_player->SetCapa(b_capa + 5);
+
+	Item_State = 0;
+}
+
+
+void Game1::Recovery()
+{
+	Reco = NewGO<prefab::CFontRender>(0, "Reco");
+	Reco->SetText(L"体力1回復だよ！");
+	Reco->SetColor(color);
+	Reco->SetPosition(Gc_position);
+	Reco->SetScale(scale);
+
+	//a++;
+
+	Item_State = 1;
+}
+
+void Game1::Protection()
+{
+	Prot = NewGO<prefab::CFontRender>(0, "Prot");
+	Prot->SetText(L"無敵だよ！");
+	Prot->SetColor(color);
+	Prot->SetPosition(Gc_position);
+	Prot->SetScale(scale);
+
+	Item_State = 2;
+}
+*/
